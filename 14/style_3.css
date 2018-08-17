@@ -1,0 +1,54 @@
+body {
+    
+}
+.title {
+    border: 1px solid #808080;
+    background-color: #808080;
+}
+
+h1 {
+    color: #fff;
+    padding: 10px;
+    margin: 0;
+    text-align: left;
+}
+
+.text {
+    border: 1px solid #D3D3D3;
+    border-top: none;
+}
+
+.nav {
+    border-top: 1px solid #D3D3D3;
+    border-bottom: 1px solid #ffffff;
+}
+.nav2 {
+    border-top: none;
+}
+div {
+    overflow: hidden;
+}
+
+h2 {
+    float: left;
+    padding: 30px;
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
+    background-color: #D3D3D3;
+}
+
+p,
+dt,
+dd {
+    float: left;
+    padding: 0 10px;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    text-indent: -40px;
+}

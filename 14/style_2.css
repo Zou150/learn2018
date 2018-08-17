@@ -1,0 +1,38 @@
+body{
+    width: 800px;
+    height: 730px;
+    border: 1px gray dashed;
+}
+.title {
+    float: left;
+    width: 150px;
+    height: 100%;
+    margin: 0;
+    background-color: #00BFFF;
+}
+div {
+    overflow: hidden;
+}
+
+.text {
+    padding-left: 20px;
+}
+
+h1 {
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+}
+
+p {
+    float: left;
+    margin: 0 40px 0 0;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    text-indent: -40px;
+}
