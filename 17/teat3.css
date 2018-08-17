@@ -1,0 +1,19 @@
+
+/* -- float实现 --  */
+.main {
+    float: left;
+    margin-right: -300px;
+    width: 100%;
+}
+
+.left {
+    margin-right: 300px;
+    background-color: #234567;
+}
+
+
+.right {
+    background-color: #a87b65;
+    float: right;
+    width: 300px;
+}
