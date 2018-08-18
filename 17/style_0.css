@@ -1,0 +1,297 @@
+html,
+
+        body {
+
+            margin: 0px;
+
+        }
+
+
+
+        .container {
+
+            width: 960px;
+
+            margin: 0 auto;
+
+        }
+
+
+
+        nav {
+
+            height: 80px;
+
+            color: #fff;
+
+            background: #333;
+
+        }
+
+
+
+        nav .logo {
+
+            display: inline-block;
+
+            padding-top: 20px;
+
+            font-size: 26px;
+
+        }
+
+
+
+        nav .container a {
+
+            float: right;
+
+            color: #fff;
+
+            font-size: 14px;
+
+            margin-top: 10px;
+
+            margin-left: 20px;
+
+        }
+
+
+
+        header .banner {
+
+            height: 300px;
+
+            background: #66bb33;
+
+        }
+
+
+
+        header .banner .container {
+
+            position: relative;
+
+        }
+
+
+
+        header .pointer {
+
+            position: absolute;
+
+            right: 0px;
+
+            bottom: -290px;
+
+        }
+
+
+
+        header .pointer i {
+
+            font-style: normal;
+
+            display: inline-block;
+
+            font-size: 12px;
+
+            width: 22px;
+
+            height: 28px;
+
+            line-height: 28px;
+
+            text-align: center;
+
+            border: 1px solid #555;
+
+            background: rgba(255, 255, 255, 0.3);
+
+            cursor: pointer;
+
+        }
+
+
+
+        header .pointer i.current {
+
+            border-color: #333;
+
+            border-top: 0;
+
+            background: rgba(255, 255, 255, 0.7);
+
+            position: relative;
+
+        }
+
+
+
+        header .pointer i.current::before {
+
+            content: '';
+
+            position: absolute;
+
+            left: -1px;
+
+            top: -15px;
+
+            width: 100%;
+
+            height: 14px;
+
+            border: 1px solid #555;
+
+            border-bottom: 0;
+
+            background: rgba(255, 255, 255, 0.7);
+
+        }
+
+
+
+        header .tab {
+
+            height: 66px;
+
+            border-bottom: 2px solid #ddd;
+
+        }
+
+
+
+        header .tab ul {
+
+            list-style: none;
+
+            padding-left: 0px;
+
+            padding-top: 20px;
+
+        }
+
+
+
+        header .tab ul li {
+
+            float: left;
+
+            padding: 0 30px;
+
+            height: 46px;
+
+            line-height: 46px;
+
+            border-top-left-radius: 24px;
+
+            border-top-right-radius: 24px;
+
+            border: 1px solid #ddd;
+
+            background: #eee;
+
+            cursor: pointer;
+
+        }
+
+
+
+        header .tab ul li.current {
+
+            position: relative;
+
+            background: #fff;
+
+        }
+
+
+
+        header .tab ul li.current::after {
+
+            position: absolute;
+
+            content: '';
+
+            width: 100%;
+
+            left: 0px;
+
+            bottom: -2px;
+
+            z-index: 2;
+
+            border-bottom: 2px solid #fff;
+
+        }
+
+
+
+
+
+        .container .content {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            margin-right: -10px;
+
+        }
+
+
+
+        .content .item {
+
+            padding: 80px;
+
+            font-size: 14px;
+
+            margin-top: 10px;
+
+            text-align: center;
+
+            margin-right: 10px;
+
+            border: 1px solid #eee;
+
+            box-sizing: border-box;
+
+        }
+
+
+
+        .col-3 {
+
+            width: 313px;
+
+        }
+
+
+
+        .col-4 {
+
+            width: 232px;
+
+        }
+
+
+
+        footer {
+
+            margin-top: 20px;
+
+            padding-top: 20px;
+
+            height: 100px;
+
+            color: #fff;
+
+            font-size: 14px;
+
+            text-align: center;
+
+            background: #666;
+
+        }
