@@ -1,0 +1,351 @@
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+}
+
+section {
+    border-bottom: rgba(0, 0, 0, .1) solid .1rem;
+}
+
+.container {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.wrapper {
+    background-color: rgba(29, 29, 29, 0.65);
+    width: 100%;
+}
+
+h3 {
+    /* font-size: 4.2rem; */
+}
+
+p {
+    /* font-weight: 200; */
+}
+
+/* 初始化-->
+<--复用 */
+
+.pic-bg {
+    width: inherit;
+    color: #fff;
+}
+
+.white-bg {
+    width: inherit;
+    background: #fff;
+    color: #000;
+}
+
+/*复用-->
+<--header */
+
+.part1 {
+    background-image: url(images/header_background.png);
+}
+
+.part1 .wrapper {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.part1 h1 {
+    /* margin: 4rem 0;
+    font-weight: 200;
+    font-size: 6.2rem;
+    line-height: 7.2rem; */
+}
+
+.part1 .wrapper p {
+    /* max-width: 77rem; */
+    text-align: center;
+    /* font-size: 2rem;
+    line-height: 3.2rem; */
+}
+
+.part1 form {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+    /* margin: 8rem 0; */
+    border: rgba(255, 255, 255, 0.2) solid .1rem;
+    /* border-radius: .2rem; 
+    padding: 5.2rem 0;
+    max-width: 97rem;
+    height: 25rem; */
+}
+
+.part1 form p {
+    margin: 0;
+    width: 100%;
+    /* font-size: 1.6rem;
+    line-height: 2.8rem;
+    letter-spacing: .15rem; */
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.part1 form .sub {
+    /* margin-bottom: 3.5rem;
+    font-size: 1.2rem; */
+    color: rgba(255, 255, 255, .3)
+}
+
+.part1 form input + input {
+    margin-left: 2.95rem;
+}
+
+.part1 form input[type="email"],
+.part1 form input[type="password"] {
+    border: rgba(255, 255, 255, 0.2) solid .1rem;
+    border-radius: .2rem;
+    padding-left: 2rem;
+    background-color: transparent;
+    width: 29.2rem;
+    height: 5rem;
+    color: #fff;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.4rem;
+    line-height: 2.6rem;
+    font-weight: 300;
+}
+
+.part1 form input[type="email"]::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.part1 form input[type="email"]:-moz-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.part1 form input[type="email"]::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.part1 form input[type="email"]:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.part1 form input[type="submit"] {
+    border: none;
+    border-radius: .2rem;
+    background-color: #fff;
+    width: 12.5rem;
+    height: 5rem;
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: .1rem;
+    font-weight: 300;
+}
+
+/* header-->
+<--past-2 */
+
+section.part2 {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4rem;
+    min-height: 71rem;
+}
+
+.part2 .container h2 {
+    text-align: center;
+}
+
+.part2 h3 {
+    margin: 30px auto;
+    text-align: center;
+}
+
+.part2 h4 {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 3.2rem;
+}
+
+.part2 .part2-content p {
+    padding: 2rem 0;
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+}
+
+div.part2-content {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    margin: 8.5rem auto;
+    max-width: 103rem;
+    min-height: 30rem;
+}
+
+.part2-content div:nth-child(2);
+.part2-content div:nth-child(4) {
+    order: 1;
+}
+
+.part2-content div {
+    padding-left: 6.6rem;
+    max-width: 43rem;
+}
+
+.part2-content img {
+    margin-top: .6rem;
+    margin-left: -6.6rem;
+    float: left;
+}
+
+/* past-2-->
+<--past-3 */
+
+section.part3 {
+    width: inherit;
+    color: #fff;
+    background-image: url(images/past3_background.png);
+}
+
+.part3 .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20%;
+}
+
+.part3 h3 {
+    max-width: 38rem;
+    text-align: left;
+}
+
+.part3 p {
+    margin: 4rem 0;
+    max-width: 38rem;
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+    text-align: left;
+}
+
+.part3 ul {
+    display: flex;
+}
+
+.part3 li {
+    list-style-type: none;
+}
+
+.past-3 .button+.button {
+    margin-left: 3rem;
+}
+
+.part3 .button a {
+    display: inline-block;
+    border: rgba(255, 255, 255, 0.3) solid .1rem;
+    border-radius: .2rem;
+    height: 6rem;
+    width: 24rem;
+    background-color: transparent;
+    color: rgba(255, 255, 255, .7);
+    line-height: 6rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: .15rem;
+    text-align: center;
+}
+
+.part3 a.ative {
+    border: rgb(255, 255, 255) solid .1rem;
+    border-radius: .2rem;
+    background-color: #fff;
+    color: #141414;
+}
+
+.part3 .wrapper-ipad {
+    overflow: hidden;
+    margin-left: 10%;
+    padding-top: 3.1rem;
+    padding-bottom: 3.1rem;
+    padding-left: 7rem;
+    width: 50%;
+    height: 60rem;
+    background-image: url(../images/past3_IPad.png);
+    background-size: 97rem 60rem;
+}
+
+.wrapper-ipad img {
+    height: 53.8rem;
+}
+
+/* past-3-->
+<--past-4 */
+
+section.part4 {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 6rem 0;
+    min-height: 58rem;
+}
+
+/* past-4-->
+<--past-5 */
+
+section.part5 {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100rem;
+}
+
+/* past-5-->
+<--team */
+
+section.part6 {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 108.4rem;
+}
+
+
+/* team-->
+<--contact */
+
+section.part7 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70rem;
+}
+
+
+/* contact-->
+<--footer */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 8.7rem;
+    padding: 8.7rem 21.5rem 0 21.5rem;
+    width: inherit;
+    min-height: 41rem;
+    color: rgba(255, 255, 255, 0.3);
+    background-color: #000;
+}
