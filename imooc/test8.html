@@ -1,0 +1,76 @@
+<!-- <!DOCTYPE html>
+<html>
+ <head>
+  <title>浏览器对象</title>  
+  <meta http-equiv="Content-Type" content="text/html; charset=gkb"/> 
+  <script type="text/javascript">  
+    var currentUrl=location.href;
+    console.log(currentUrl);
+    //获取显示秒数的元素，通过定时器来更改秒数。
+        //跳转到 https://www.baidu.com 页面的函数
+        function goTo(){
+          window.open('https://www.baidu.com','百度','width=600,height=500');
+          document.write('操作成功！');
+        }
+        setTimeout("goTo()",5000);
+        //显示倒计时的函数
+        var num=5;
+        function changeTime(){  
+            var timgHtml=document.getElementById('time');
+                timgHtml.innerHtml('num');
+                num--;       
+          }
+          var i=setInterval("changeTime()",1000);
+          if(num==1){
+            clearInterval(i);
+          } 
+      
+        //返回到当前页面
+        function backCurrent(){       
+          history.go(-1);
+        }
+ </script>   
+ </head>
+ <body>
+  先编写好网页布局-->
+  <!-- <p><span id="time"></span> 秒后回到主页<a href="#" id="toBaidu" onclick="backCurrent()">返回</a></p>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>浏览器对象</title>  
+  <meta http-equiv="Content-Type" content="text/html; charset=gkb"/>   
+ </head>
+ <body>
+  <!--先编写好网页布局-->
+  <h4>操作成功</h4>
+  <p><span id="num">5</span> 秒后回到主页&nbsp;<a href="javascript:back1();">返回</a></p>
+  
+  <script type="text/javascript">  
+    
+   //获取显示秒数的元素，通过定时器来更改秒数。
+    
+    // var i = 5;
+    document.write(num2);
+    function changeTime(){
+      
+    var num2 = document.getElementById("num").innerHTML;
+        // i--;
+        // num2 = i;
+        num2 = --num2;
+        if(num2 == 0){
+            window.location.href="http://www.imooc.com/";
+        }
+    }
+    setInterval(changeTime,1000);
+   
+   //通过window的location和history对象来控制网页的跳转。
+   
+    function back1(){
+        window.history.back(1);
+    }
+ </script> 
+</body>
+</html>
