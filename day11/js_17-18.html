@@ -14,19 +14,45 @@
     <p id="result">运算结果</p>
     <script>
         document.getElementById("add-btn").onclick = function() {
-            var x = document.getElementById("first-number").value;
-            var y = document.getElementById("second-number").value;
-            document.getElementById("result").innerHTML = parseInt(x) + parseInt(y);
+            var x = parseInt(document.getElementById("first-number").value);
+            var y = parseInt(document.getElementById("second-number").value);
+            if(isNaN(x) == false && isNaN(y) == false) {
+                document.getElementById("result").innerHTML = x + y;
+            }else {
+                console.log('woring');
+            }
             // document.getElementById("result").innerHTML = document.getElementById("first-number").value + document.getElementById("second-number").value;
             }
         document.getElementById("minus-btn").onclick = function() {
-            document.getElementById("result").innerHTML = document.getElementById("first-number").value - document.getElementById("second-number").value;
+            var x = parseInt(document.getElementById("first-number").value);
+            var y = parseInt(document.getElementById("second-number").value);
+            if(isNaN(x) == false && isNaN(y) == false) {
+                document.getElementById("result").innerHTML = x - y;
+            }else {
+                console.log('woring');
+            }
             }
         document.getElementById("times-btn").onclick = function() {
-           document.getElementById("result").innerHTML = document.getElementById("first-number").value * document.getElementById("second-number").value;
+            var x = parseInt(document.getElementById("first-number").value);
+            var y = parseInt(document.getElementById("second-number").value);
+            if(isNaN(x) == false && isNaN(y) == false) {
+                document.getElementById("result").innerHTML = x * y;
+            }else {
+                console.log('woring');
+            }
             }
         document.getElementById("divide-btn").onclick = function() {
-            document.getElementById("result").innerHTML = document.getElementById("first-number").value / document.getElementById("second-number").value;
+            var x = parseInt(document.getElementById("first-number").value);
+            var y = parseInt(document.getElementById("second-number").value);
+            if(isNaN(x) == false && isNaN(y) == false) {
+                if(y ==0) {
+                    alert('除数为0');
+                }else {
+                    document.getElementById("result").innerHTML = x / y;
+                    }
+                }else {
+                    console.log('woring');
+                    }
             }
     </script>
 </body>

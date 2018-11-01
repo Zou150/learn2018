@@ -11,20 +11,28 @@
     <script>
 
 function dec2bin(decNumber) {
+    decNumber = Number(decNumber);
     // 在这里实现你的转化方法，注意需要判断输入必须为一个非负整数
-    if (!is_int(decNumber)) return false;
-    $bin = '';
-    while (decNumber>1) {
-        decNumber .= decNumber%2;
-        decNumber = (decNumber-decNumberc%2)/2;
+    if ((decNumber<0) || (decNumber %1 !==0)) {
+        console.log("woring");
+        return;
+    } 
+    var num = '';
+    while (decNumber !== 0) {
+        num = (decNumber%2) + num;
+        decNumber = parseInt(decNumber / 2);
+        // decNumber = Math.floor(decNumber / 2);
     }
-    return strrev(decNumber.decNumber);
+    return num;
 }
 
 // 实现党点击转化按钮时，将输入的十进制数字转化为二进制，并显示在result的p标签内
 // Some coding
      
-    document.getElementById(result).innerHTML = document.getElementById(trans-btn).dec2bin();
+    document.getElementById('trans-btn').onclick = function() {
+        var result = dec2bin(document.getElementById('dec-number').value);
+        document.getElementById('result').innerHTML = result;
+    }
     </script>
 </body>
 </html>
