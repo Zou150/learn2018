@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="E:\code\201808\14\style_2.css"/>
+</head>
+<body>
+    <div class="title">
+        <h1>简历</h1>
+    </div>
+    
+    <div class="text">    
+    <div class="nav nav2">
+        <h2>基本信息</h2>
+        <p><strong>姓名</strong>&nbsp;张三</p>
+        <p><strong>性别</strong>&nbsp; 男</p>
+        <p><strong>应聘职位</strong>&nbsp; Web前端工程师</p>
+    </div>
+    <div class="nav">   
+        <h2>联系方式</h2>
+        <p><strong>手机</strong> &nbsp;12313241234</p>
+        <p><strong>Email</strong>&nbsp; <a href="#">joinefe@baidu.com</a></p>
+        <p><strong>个人主页</strong>&nbsp; <a href="#">Github</a></p>
+    </div>
+    <div class="nav">    
+    <h2>能力描述</h2>
+        <dt>技术能力</dt>
+        <dd>熟练掌握HTML、CSS、JavaScript</dd>
+        <br \>
+        <dt>综合能力</dt>
+        <dd>良好的沟通，主动积极，努力勤奋</dd>
+    </div>
+    <div class="nav">
+    <h2>教育经历</h2>
+        <dt>本科</dt>
+        <dd>百度前端技术学院小薇学院</dd>
+        <br \>
+        <dt>研究生</dt>
+        <dd>百度前端技术学院大斌学院</dd>   
+    </div> 
+    <div class="nav">    
+    <h2>项目经历</h2>
+        <dt>小度小度</dt>
+        <dd>作为前端工程师角色参与了ABC组件的开发</dd>
+        <br \>
+        <dt>SAN Doc</dt>
+        <dd>作为文档工程师参与了SAN Doc编写</dd>
+    </div>    
+    </div>
+    <script>
+        var time = new Date();
+        document.write(time.getHours());
+        if(time.getHours()>6 && time.getHours()<12) {
+            alert('上午好！')
+        }
+        else if(time.getHours()>12 && time.getHours()<18) {
+            alert('下午好!');
+        }else {
+            alert('晚上好！');
+        }
+    </script>
+</body>
+</html>
