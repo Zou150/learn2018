@@ -24,25 +24,24 @@
     <p id="result"></p>
     <script>
         window.onload = function() {
-            var radioA = document.getElementById('radio-a');
+            let radioA = document.getElementById('radio-a');
             var radioB = document.getElementById('radio-b');
             var numA = document.getElementById('num-a');
             var numB = document.getElementById('num-b');
             var btn = document.getElementsByTagName('button');
             var result = document.getElementById('result');
-            
-
-            console.log(btn)
 
             for(var i =0;i<btn.length;i++) {
-                var num = i;
-                btn[i].onclick = function() {
-                    cal(num);
+                // btn[i].onclick = function() {
+                //     cal(i);
+                //     console.log(i);
+                var btn = btn[i];
+                (function (j){btn.onclick = function (){cal(j);}})(i);
                 } 
-            }            
+                   
             
-            function cal(num) {
-                switch(num) {
+            function cal(btnNum) {
+                switch(btnNum) {
                     case 0:
                     if(radioA.checked){
                         if(isNaN(numA.value) == false) {
@@ -63,8 +62,55 @@
                         }
                     }
                     break;
+                    case 2:
+                    if(radioA.checked){
+                        if(isNaN(numA.value)) {
+                            console.log('不是数字');
+                        }
+                        var a = parsenFolat(numA.value);
+                        consolelog(a);
                     }
-            
+                    if(radioB.checked){
+                        if(isNaN(numB.value)) {
+                            console.log('不是数字');
+                        }
+                        var b = parseInt(numB.value);
+                        result.innerHTML = a.toFixed(b);
+                    }
+                    break;
+                    // case 2:
+                    // if(radioA.checked){
+                    //     if(isNaN(numA.value)) {
+                    //         console.log('不是数字');
+                    //     }
+                    //     var a = ;
+                    //     result.innerHTML = a;
+                    // }
+                    // if(radioB.checked){
+                    //     if(isNaN(numB.value)) {
+                    //         console.log('不是数字');
+                    //     }
+                    //     var b = ;
+                    //     result.innerHTML = b;
+                    // }
+                    // break;
+                    // case 3:
+                    // if(radioA.checked){
+                    //     if(isNaN(numA.value)) {
+                    //         console.log('不是数字');
+                    //     }
+                    //     var a = ;
+                    //     result.innerHTML = a;
+                    // }
+                    // if(radioB.checked){
+                    //     if(isNaN(numB.value)) {
+                    //         console.log('不是数字');
+                    //     }
+                    //     var b = ;
+                    //     result.innerHTML = b;
+                    // }
+                    // break;
+            }
             }
         }
     </script>
