@@ -30,87 +30,150 @@
             var numB = document.getElementById('num-b');
             var btn = document.getElementsByTagName('button');
             var result = document.getElementById('result');
+            var btnNum;
 
             for(var i =0;i<btn.length;i++) {
                 // btn[i].onclick = function() {
                 //     cal(i);
                 //     console.log(i);
-                var btn = btn[i];
-                (function (j){btn.onclick = function (){cal(j);}})(i);
+                var bt = btn[i];
+                (function (j){bt.onclick = function (){cal(j);}})(i);
                 } 
                    
-            
+            function numCheck(num) {
+                if (isNaN(num) || num === ' ' || num === null || num === '') return false;
+                else return true;
+            }
             function cal(btnNum) {
                 switch(btnNum) {
-                    case 0:
-                    if(radioA.checked){
-                        if(isNaN(numA.value) == false) {
-                            result.innerHTML = '是数字';
-                            console.log('是数字');
+                    case 0: 
+                        if(radioA.checked){
+                            if(isNaN(numA.value) == false) {
+                                result.innerHTML = '是数字';
+                                console.log('是数字');
+                            }
+                            else {
+                                result.innerHTML = '不是数字';
+                            }
+                        }
+                        if(radioB.checked){
+                            if(isNaN(numB.value) == false) {
+                                result.innerHTML = '是数字';
+                                console.log('是数字');
+                            }
+                            else {
+                                result.innerHTML = '不是数字';
+                            }
+                        }
+                        break;
+                    
+                    case 1: 
+                        if(numA.value == "" || numB.value == "") {
+                            alert('A、B内容不能为空');
+                        }
+                        else if(isNaN(numA.value) || isNaN(numB.value)) {
+                            console.log('不是数字');
                         }
                         else {
-                            result.innerHTML = '不是数字';
+                            var a = parseFloat(numA.value);
+                            console.log(a);
+                            var b = parseInt(numB.value);
+                            result.innerHTML = a.toFixed(b);
                         }
-                    }
-                    if(radioB.checked){
-                        if(isNaN(numB.value) == false) {
-                            result.innerHTML = '是数字';
-                            console.log('是数字');
-                        }
-                        else {
-                            result.innerHTML = '不是数字';
-                        }
-                    }
-                    break;
+                        break;
+                    
                     case 2:
-                    if(radioA.checked){
-                        if(isNaN(numA.value)) {
-                            console.log('不是数字');
+                        if(radioA.checked){
+                            if(isNaN(numA.value) || numA.value == "") {
+                                console.log('A不是数字或为空');
+                            }
+                            var a = Math.abs(parseInt(numA.value));
+                            result.innerHTML = a;
                         }
-                        var a = parsenFolat(numA.value);
-                        consolelog(a);
-                    }
-                    if(radioB.checked){
-                        if(isNaN(numB.value)) {
-                            console.log('不是数字');
+                        if(radioB.checked){
+                            if(isNaN(numB.value) || numB.value == "") {
+                                console.log('B不是数字或为空');
+                            }
+                            var b = Math.abs(parseInt(numB.value));
+                            result.innerHTML = b;
                         }
-                        var b = parseInt(numB.value);
-                        result.innerHTML = a.toFixed(b);
-                    }
-                    break;
-                    // case 2:
-                    // if(radioA.checked){
-                    //     if(isNaN(numA.value)) {
-                    //         console.log('不是数字');
-                    //     }
-                    //     var a = ;
-                    //     result.innerHTML = a;
-                    // }
-                    // if(radioB.checked){
-                    //     if(isNaN(numB.value)) {
-                    //         console.log('不是数字');
-                    //     }
-                    //     var b = ;
-                    //     result.innerHTML = b;
-                    // }
-                    // break;
-                    // case 3:
-                    // if(radioA.checked){
-                    //     if(isNaN(numA.value)) {
-                    //         console.log('不是数字');
-                    //     }
-                    //     var a = ;
-                    //     result.innerHTML = a;
-                    // }
-                    // if(radioB.checked){
-                    //     if(isNaN(numB.value)) {
-                    //         console.log('不是数字');
-                    //     }
-                    //     var b = ;
-                    //     result.innerHTML = b;
-                    // }
-                    // break;
-            }
+                        break;
+
+                    case 3:
+                        if(radioA.checked){
+                            if(isNaN(numA.value) || numA.value == "") {
+                                console.log('A不是数字或为空');
+                            }
+                            var a = Math.ceil(numA.value);
+                            result.innerHTML = a;
+                        }
+                        if(radioB.checked){
+                            if(isNaN(numB.value) || numB.value == "") {
+                                console.log('B不是数字或为空');
+                            }
+                            var b = Math.ceil(numB.value);
+                            result.innerHTML = b;
+                        }
+                        break;
+                    case 4:
+                        if(radioA.checked){
+                            if(isNaN(numA.value) || numA.value == "") {
+                                console.log('A不是数字或为空');
+                            }
+                            var a = Math.floor(numA.value);
+                            result.innerHTML = a;
+                        }
+                        if(radioB.checked){
+                            if(isNaN(numB.value) || numB.value == "") {
+                                console.log('B不是数字或为空');
+                            }
+                            var b = Math.floor(numB.value);
+                            result.innerHTML = b;
+                        }
+                        break;
+                    case 5:
+                        if(radioA.checked){
+                            if(isNaN(numA.value) || numA.value == "") {
+                                console.log('A不是数字或为空');
+                            }
+                            var a = Math.round(numA.value);
+                            result.innerHTML = a;
+                        }
+                        if(radioB.checked){
+                            if(isNaN(numB.value) || numB.value == "") {
+                                console.log('B不是数字或为空');
+                            }
+                            var b = Math.round(numB.value);
+                            result.innerHTML = b;
+                        }
+                        break;
+                    case 6:
+                        if(isNaN(numA.value) || numA.value == "") {
+                            console.log('A不是数字或为空');
+                        }
+                        else if(isNaN(numB.value) || numB.value == "") {
+                            console.log('B不是数字或为空');
+                        }
+                        else {
+                            var a = numA.value;
+                            var b = numB.value;
+                            result.innerHTML = Math.max(a,b);
+                        }
+                        break;
+                    case 7:
+                        if(isNaN(numA.value) || numA.value == "") {
+                            console.log('A不是数字或为空');
+                        }
+                        else if(isNaN(numB.value) || numB.value == "") {
+                            console.log('B不是数字或为空');
+                        }
+                        else {
+                            var a = numA.value;
+                            var b = numB.value;
+                            result.innerHTML = Math.min(a,b);
+                        }
+                        break;
+                }
             }
         }
     </script>

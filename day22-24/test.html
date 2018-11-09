@@ -1,0 +1,260 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<style>
+    button {
+        display: block;
+        margin-top: 20px;
+    }
+</style>
+<script>
+    window.onload = function () {
+        let ra = document.getElementById("radio-a");
+        let rb = document.getElementById("radio-b");
+        let na = document.getElementById("num-a");
+        let nb = document.getElementById("num-b");
+        let re = document.getElementById("result");
+        let btns = document.getElementsByTagName("button");
+        let btnNum;
+        function numCheck(num) {
+            if (isNaN(num) || num === ' ' || num === null || num === '') return false;
+            else return true;
+        }
+        for (var i = 0; i < btns.length; i++)
+        {
+            var btn = btns[i];
+            (
+                function (j)
+                {
+                    btn.onclick = function ()
+                    {
+                        gameOne(j);
+                    }
+                }
+            )(i);
+        }
+        function gameOne (btnNum)
+        {
+            switch (btnNum)
+            {
+                case 0:
+                {
+                    if (ra.checked)
+                    {
+                        if (numCheck(na.value))
+                        {
+                            re.innerHTML = "是数字";
+                        }
+                        else
+                        {
+                            re.innerHTML = "不是数字";
+                        }
+                    }
+                    if (rb.checked)
+                    {
+                        if (numCheck(nb.value))
+                        {
+                            re.innerHTML = "是数字";
+                        }
+                        else
+                        {
+                            re.innerHTML = "不是数字";
+                        }
+                    }
+                    break;
+                }
+                case 1:
+                {
+                    if (numCheck(na.value))
+                    {
+                        if (Number.isInteger(parseFloat(nb.value)))
+                        {
+                            numDisplay();
+                        }
+                        else
+                        {
+                            re.innerHTML = '请在B中输入一个整数';
+                        }
+                    }
+                    else
+                    {
+                       re.innerHTML = "请在A中输入一个正确的浮点数" ;
+                    }
+                    function numDisplay()
+                    {
+                        let n1 = parseFloat(na.value);
+                        let n2 = parseInt(nb.value);
+                        let n3 = n1.toFixed(n2);
+                        re.innerHTML = n3;
+                    }
+                    break;
+                }
+                case 2: {
+                    if (ra.checked)
+                    {
+                        if (numCheck(na.value))
+                        {
+                            re.innerHTML = Math.abs(parseFloat(na.value));
+                        }
+                        else
+                        {
+                            re.innerHTML = "A中不是数字";
+                        }
+                    }
+                    if (rb.checked)
+                    {
+                        if (numCheck(nb.value))
+                        {
+                            re.innerHTML = Math.abs(parseFloat(nb.value));
+                        }
+                        else
+                        {
+                            re.innerHTML = "B中不是数字";
+                        }
+                    }
+                    break;
+                }
+                case 3: {
+                    if (ra.checked)
+                    {
+                        if (numCheck(na.value))
+                        {
+                            re.innerHTML = Math.ceil(parseFloat(na.value));
+                        }
+                        else
+                        {
+                            re.innerHTML = "A中不是数字";
+                        }
+                    }
+                    if (rb.checked)
+                    {
+                        if (numCheck(nb.value))
+                        {
+                            re.innerHTML = Math.ceil(parseFloat(nb.value));
+                        }
+                        else
+                        {
+                            re.innerHTML = "B中不是数字";
+                        }
+                    }
+                    break;
+                }
+                case 4: {
+                    if (ra.checked)
+                    {
+                        if (numCheck(na.value))
+                        {
+                            re.innerHTML = Math.floor(parseFloat(na.value));
+                        }
+                        else
+                        {
+                            re.innerHTML = "A中不是数字";
+                        }
+                    }
+                    if (rb.checked)
+                    {
+                        if (numCheck(nb.value))
+                        {
+                            re.innerHTML = Math.floor(parseFloat(nb.value));
+                        }
+                        else
+                        {
+                            re.innerHTML = "B中不是数字";
+                        }
+                    }
+                    break;
+                }
+                case 5: {
+                    if (ra.checked)
+                    {
+                        if (numCheck(na.value))
+                        {
+                            re.innerHTML = parseFloat(na.value).toFixed(0);
+                        }
+                        else
+                        {
+                            re.innerHTML = "A中不是数字";
+                        }
+                    }
+                    if (rb.checked)
+                    {
+                        if (numCheck(nb.value))
+                        {
+                            re.innerHTML = parseFloat(nb.value).toFixed(0);
+                        }
+                        else
+                        {
+                            re.innerHTML = "B中不是数字";
+                        }
+                    }
+                    break;
+                }
+                case 6: {
+                    if (numCheck(na.value))
+                    {
+                        if (numCheck(nb.value))
+                        {
+                            let n1 = parseFloat(na.value);
+                            let n2 = parseFloat(nb.value);
+                            re.innerHTML = Math.max(n1, n2);
+                        }
+                        else
+                        {
+                            re.innerHTML = "B中不是数字";
+                        }
+                    }
+                    else
+                    {
+                        re.innerHTML = "A中不是数字";
+                    }
+                    break;
+                }
+                case 7: {
+                    if (numCheck(na.value))
+                    {
+                        if (numCheck(nb.value))
+                        {
+                            let n1 = parseFloat(na.value);
+                            let n2 = parseFloat(nb.value);
+                            re.innerHTML = Math.min(n1, n2);
+                        }
+                        else
+                        {
+                            re.innerHTML = "B中不是数字";
+                        }
+                    }
+                    else
+                    {
+                        re.innerHTML = "A中不是数字";
+                    }
+                    break;
+                }
+            }
+        }
+    }
+</script>
+</head>
+<body>
+<div>
+    <label>Number A:<input id="radio-a" type="radio" name="math-obj" value="a"></label><input id="num-a" type="text">
+    <label>Number B:<input id="radio-b" type="radio" name="math-obj" value="b"></label><input id="num-b" type="text">
+</div>
+<div>
+    <button>判断当前选中的输入框输入内容是否为数字</button>
+    <button>把 A 四舍五入为 B 个小数位数的数字</button>
+    <button>当前选中数字的绝对值</button>
+    <button>对当前选中的数字进行上舍入</button>
+    <button>对当前选中的数字进行下舍入</button>
+    <button>把当前选中的数字四舍五入为最接近的整数</button>
+    <button>返回 A 和 B 中的最高值</button>
+    <button>返回 A 和 B 中的最低值</button>
+</div>
+<p id="result"></p>
+</body>
+</html>
