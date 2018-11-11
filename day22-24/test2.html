@@ -34,6 +34,113 @@
         <button>把所选输入框中内容的a全部替换成另外一个输入框中的内容</button>
     </div>
     <p id="result"></p>
-    
+    <script>
+        window.onload = function() {
+            var radioA = document.getElementById('radio-a');
+            var radioB = document.getElementById('radio-b');
+            var strA = document.getElementById('str-a');
+            var strB = document.getElementById('str-b');
+            var numA = document.getElementById('num-a');
+            var numB = document.getElementById('num-b');
+            var btn = document.getElementsByTagName('button');
+            var re = document.getElementById('result');
+
+            // function checked() {
+                
+            // }
+            btn[0].onclick = function() {
+                if(radioA.checked) {
+                    re.innerHTML = strA.value.length;
+                }
+                if(radioB.checked) {
+                    re.innerHTML = strB.value.length;
+                }
+            }
+
+            btn[1].onclick = function() {
+                if(radioA.checked) {
+                    re.innerHTML = strA.value;
+                }
+                if(radioB.checked) {
+                    re.innerHTML = strB.value;
+                }
+            }
+
+            btn[2].onclick = function() {
+                re.innerHTML = strA.value + strB.value;
+            }
+
+            btn[3].onclick = function() {
+                re.innerHTML = numA.value.indexOf(numB.value);
+            }
+
+            btn[4].onclick = function() {
+                re.innerHTML = numA.value.lastIndexOf(numB.value);
+            }
+
+            btn[5].onclick = function() {
+                if(radioA.checked) {
+                    re.innerHTML = strA.value.slice(numA.value,numB.value);
+                }
+                if(radioB.checked) {
+                    re.innerHTML = strB.value.slice(numA.value,numB.value);
+                }
+            }
+
+            btn[6].onclick = function() {
+                if(radioA.checked) {
+                    re.innerHTML = strA.value;
+                }
+                if(radioB.checked) {
+                    re.innerHTML = strB.value;
+                }
+            }
+
+            btn[7].onclick = function() {
+                if(radioA.checked) {
+                    re.innerHTML = strA.value.substr(numA.value,numB.value);
+                }
+                if(radioB.checked) {
+                    re.innerHTML = strB.value.substr(numA.value,numB.value);
+                }
+            }
+
+            btn[8].onclick = function() {
+                if(radioA.checked) {
+                    re.innerHTML = strA.value.toUpperCase();
+                }
+                if(radioB.checked) {
+                    re.innerHTML = strB.value.toUpperCase();
+                }
+            }
+
+            btn[9].onclick = function() {
+                if(radioA.checked) {
+                    re.innerHTML = strA.value.toLowerCase();
+                }
+                if(radioB.checked) {
+                    re.innerHTML = strB.value.toLowerCase();
+                }
+            }
+
+            btn[10].onclick = function() {
+                if(radioA.checked) {
+                    re.innerHTML = strA.value.toLowerCase();
+                }
+                if(radioB.checked) {
+                    re.innerHTML = strB.value.toLowerCase();
+                }
+            }
+
+            btn[11].onclick = function() {
+                if(radioA.checked) {
+                    re.innerHTML = strA.value.replace('a',strB.value);
+                }
+                if(radioB.checked) {
+                    re.innerHTML = strB.value.replace('a',strA.value);
+                }
+            }
+        }
+    </script>
 </body>
 </html>
