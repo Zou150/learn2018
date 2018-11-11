@@ -59,10 +59,10 @@
 
             btn[1].onclick = function() {
                 if(radioA.checked) {
-                    re.innerHTML = strA.value;
+                    re.innerHTML = strA.value[2];
                 }
                 if(radioB.checked) {
-                    re.innerHTML = strB.value;
+                    re.innerHTML = strB.value[2];
                 }
             }
 
@@ -86,13 +86,13 @@
                     re.innerHTML = strB.value.slice(numA.value,numB.value);
                 }
             }
-
+        //当前选中输入框的行数
             btn[6].onclick = function() {
                 if(radioA.checked) {
-                    re.innerHTML = strA.value;
+                    p.innerHTML = strA.value.split(/\n/).length;
                 }
                 if(radioB.checked) {
-                    re.innerHTML = strB.value;
+                    p.innerHTML = strB.value.split(/\n/).length;
                 }
             }
 
@@ -125,10 +125,10 @@
 
             btn[10].onclick = function() {
                 if(radioA.checked) {
-                    re.innerHTML = strA.value.toLowerCase();
+                    re.innerHTML = strA.value.replace(/\s+/g,'');
                 }
                 if(radioB.checked) {
-                    re.innerHTML = strB.value.toLowerCase();
+                    re.innerHTML = strB.value.replace(/\s+/g,'');
                 }
             }
 
