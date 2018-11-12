@@ -76,7 +76,7 @@
         find(tree);
         return id;
     }
-    console('根据name找id，请输入findIdByName(name)：');
+    console.log('根据name找id，请输入findIdByName(name)：');
 
     // 假设id和name均不会重复，根据输入id找到对应的name
     function findNameById(id) {
@@ -93,21 +93,53 @@
         find(tree);
         return name;
     }
+    console.log('根据id找name，请输入findNameById(id)：');
 
     // 把这个对象中所有的名字以“前序遍历”的方式全部输出到console中
     function getListWithDLR() {
-
+        
+        function pretraversal(obj) {
+            if(obj != null) {
+                console.log(obj.name);
+                pretraversal(obj.left);
+                pretraversal(obj.right);
+            }
+        }
+        pretraversal(tree);
     }
-
+    
     // 把这个对象中所有的名字以“中序遍历”的方式全部输出到console中
     function getListWithLDR() {
 
+        function midtraversal(obj) {
+            if(obj != null) {
+                midtraversal(obj.left);
+                console.log(obj.name);
+                midtraversal(obj.right);
+            }
+        }
+        midtraversal(tree);
     }
 
     // 把这个对象中所有的名字以“后序遍历”的方式全部输出到console中
     function getListWithLRD() {
 
+        function posttraversal(obj) {
+            if(obj != null) {
+                posttraversal(obj.left);
+                console.log(obj.name);
+                posttraversal(obj.right);
+            }
+        }
+        posttraversal(tree);
     }
+
+        console.log("——————————前序遍历——————————");
+        getListWithDLR();
+        console.log("——————————中序遍历——————————");
+        getListWithLDR();
+        console.log("——————————后序遍历——————————");
+        getListWithLRD();
     </script>
 </body>
 </html>
