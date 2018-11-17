@@ -219,18 +219,44 @@
     </select>
 
     <script>
-        var re = document.getElementById('result-wrapper');
-        var year = document.getElementById('year-select');
-        var month = document.getElementById('month-select');
-        var day = document.getElementById('day-select');
-        var hour = document.getElementById('day-select');
-        var min = document.getElementById('minite-select');
-        var second = document.getElementById('second-select');
+        window.onload = function() {
+            setInterval(function() {
+                main();
+                document.getElementById('123').innerHTML = Date();
+            },1000);
+        }
 
-        console.log(min[0].innerHTML);
-        console.log(min[5].innerHTML);
+        function getSelectValue(id) {
+            var i = document.getElementById(id);
+            var index = i.selectedIndex;
+            return i.options[index].innerHTML;
+        }
+
+        function main() {
+            var re = document.getElementById('result-wrapper');
+            var year = document.getElementById('year-select');
+            var month = document.getElementById('month-select');
+            var day = document.getElementById('day-select');
+            var hour = document.getElementById('day-select');
+            var min = document.getElementById('minite-select');
+            var second = document.getElementById('second-select');
+
+            var index = year.selectedIndex;
+
+            console.log(min[0].innerHTML);
+            console.log(min[5].innerHTML);
+        }
+            
+        function add(i) {
+            if(i < 10) {
+                i = "0" +i;
+            }
+            return i;
+        }
+        
     </script>
     
-    <p id="result-wrapper">现在距离 5001年1月1日星期X HH:MM:SS 还有 X 天 X 小时 X 分 X 秒</p>
+    <p id="result-wrapper">现在距离 2001年1月1日星期X HH:MM:SS 还有 X 天 X 小时 X 分 X 秒</p>
+
 </body>
 </html>
