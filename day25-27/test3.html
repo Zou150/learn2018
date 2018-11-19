@@ -234,14 +234,26 @@
 
         function main() {
             var re = document.getElementById('result-wrapper');
-            var year = document.getElementById('year-select');
-            var month = document.getElementById('month-select');
-            var day = document.getElementById('day-select');
-            var hour = document.getElementById('day-select');
-            var min = document.getElementById('minite-select');
-            var second = document.getElementById('second-select');
+            var year = parseInt(getSelectValue('year-select'));
+            var month = parseInt(getSelectValue('month-select'));
+            var day = parseInt(getSelectValue('day-select'));
+            var hour = parseInt(getSelectValue('day-select'));
+            var min = parseInt(getSelectValue('minite-select'));
+            var second = parseInt(getSelectValue('second-select'));
 
             var index = year.selectedIndex;
+
+            //定义现在时间
+            var time = new Date();
+            var year = time.getFullYear();
+            var month = time .getMonth();
+            var day = time.getDate();
+            var h = time.getHours();
+            var m = time.getMinutes();
+            var s = time.getSeconds();
+
+
+            //
 
             console.log(min[0].innerHTML);
             console.log(min[5].innerHTML);
