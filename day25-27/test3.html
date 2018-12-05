@@ -226,10 +226,52 @@
             },1000);
         }
 
+        //获取select的选中值
         function getSelectValue(id) {
             var i = document.getElementById(id);
             var index = i.selectedIndex;
             return i.options[index].innerHTML;
+        }
+
+        //计算本年中这一天之前有多少天
+        function dayOfFront(year,mon,day) {
+            var allday = 0;
+            for(var i =1;i < mon;i++) {
+                if(isLeapYear(year)) {
+                    allday = leapYear[i] + allday;
+                }
+                else {
+                    allday = commonYear[i] + allday;
+                }
+            }
+            return allday + day - 1;
+        }
+
+        //闰年判断
+        function isLeapYear(obj) {
+            if(obj % 100 !== 0 && obj % 4 ==0) {
+                return true;
+            }
+            else if(obj % 400 == 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        //根据日期，返回这一天是星期几
+        function dayOfToday(obj) {
+            weekend = ['星期一','星期二','星期三','星期四','星期五','星期六','星期日'];
+            return weekend[obj.getDay()];
+        }
+
+        //0位补空
+        function addZero(obj) {
+            if(obj < 10) {
+                obj = '0' + obj;
+            }
+            return obj;
         }
 
         function main() {
@@ -252,13 +294,45 @@
             var m = time.getMinutes();
             var s = time.getSeconds();
 
+            //判断是否年份
+            if(now_year - year >0) {
+                var i = now_year - year-1;
+                for(i;i>0;i--) {
+                    if(isLeapYear(year + i)) {
+                        Number += 366;
+                    }
+                    else {
+                        Number += 365;
+                    }
+                }
+                tNum1 = Number + dayOfFront(now_year,now_mon,now_day) +dayOfAfter(year,mon,day);
+                tNum2 = timeOfAfter(hour,min,second);
+                tNum3 = now_h * 3600 + now_m * 60 + now_s;
+                tNum4 = tNum1 + tNum3;
+                if(tNum4 >= 24 * 3600) {
+                    dayNum = Math.abs(tNum1 + 1);
+                    hourNum = Math.floor((tNum4 - (24 * 3600))/3600);
+                    minNum = Math.floor(((tNum4 - (24 * 3600))%3600)/60);
+                    secNum = (((tNum4 - (24 * 3600))%3600)%60);
+                }
+                else {
+                    dayNum = Math.abs(tNum1);
+                    hourNum = Math.floor(tNum4/3600);
+                    minNum = Math.floor(tNum4/60);
+                    secNum = Math.floor(tNum4%3600%60);
+                }
+                temp = '已经过去';
+            }
+            else if (now_year - year == 0) {
 
-            //
+            }
 
             console.log(min[0].innerHTML);
             console.log(min[5].innerHTML);
         }
             
+        
+
         function add(i) {
             if(i < 10) {
                 i = "0" +i;
