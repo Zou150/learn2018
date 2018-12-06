@@ -1,0 +1,956 @@
+
+Skip to content
+
+Pull requests
+Issues
+Marketplace
+Explore
+
+@Zou150
+
+0
+🔖 Release-only subscription
+
+You can now limit a repository's notifications exclusively to releases. Use it to follow your favorite repositories!
+0
+
+1
+
+PhilFitz/IFE-Task
+Code
+Issues 0
+Pull requests 0
+Projects 0
+Wiki
+Insights
+IFE-Task/day25-27/day25_5.html
+f7bc6bc on 2 Oct
+@PhilFitz PhilFitz 倒数开始 滴答滴 滴答滴
+447 lines (425 sloc) 16.5 KB
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+</head>
+<body>
+<select id="year-select">
+    <option value="2015">2015</option>
+    <option value="2016">2016</option>
+    <option value="2017">2017</option>
+    <option value="2018">2018</option>
+    <option value="2019">2019</option>
+</select>
+
+<select id="month-select">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+</select>
+
+<select id="day-select">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option value="31">31</option>
+</select>
+
+<select id="hour-select">
+    <option value="0">00</option>
+    <option value="1">01</option>
+    <option value="2">02</option>
+    <option value="3">03</option>
+    <option value="4">04</option>
+    <option value="5">05</option>
+    <option value="6">06</option>
+    <option value="7">07</option>
+    <option value="8">08</option>
+    <option value="9">09</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+</select>
+
+<select id="minite-select">
+    <option value="0">00</option>
+    <option value="1">01</option>
+    <option value="2">02</option>
+    <option value="3">03</option>
+    <option value="4">04</option>
+    <option value="5">05</option>
+    <option value="6">06</option>
+    <option value="7">07</option>
+    <option value="8">08</option>
+    <option value="9">09</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option value="31">31</option>
+    <option value="32">32</option>
+    <option value="33">33</option>
+    <option value="34">34</option>
+    <option value="35">35</option>
+    <option value="36">36</option>
+    <option value="37">37</option>
+    <option value="38">38</option>
+    <option value="39">39</option>
+    <option value="40">40</option>
+    <option value="41">41</option>
+    <option value="42">42</option>
+    <option value="43">43</option>
+    <option value="44">44</option>
+    <option value="45">45</option>
+    <option value="46">46</option>
+    <option value="47">47</option>
+    <option value="48">48</option>
+    <option value="49">49</option>
+    <option value="50">50</option>
+    <option value="51">51</option>
+    <option value="52">52</option>
+    <option value="53">53</option>
+    <option value="54">54</option>
+    <option value="55">55</option>
+    <option value="56">56</option>
+    <option value="57">57</option>
+    <option value="58">58</option>
+    <option value="59">59</option>
+</select>
+
+<select id="second-select">
+    <option value="0">00</option>
+    <option value="1">01</option>
+    <option value="2">02</option>
+    <option value="3">03</option>
+    <option value="4">04</option>
+    <option value="5">05</option>
+    <option value="6">06</option>
+    <option value="7">07</option>
+    <option value="8">08</option>
+    <option value="9">09</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option value="31">31</option>
+    <option value="32">32</option>
+    <option value="33">33</option>
+    <option value="34">34</option>
+    <option value="35">35</option>
+    <option value="36">36</option>
+    <option value="37">37</option>
+    <option value="38">38</option>
+    <option value="39">39</option>
+    <option value="40">40</option>
+    <option value="41">41</option>
+    <option value="42">42</option>
+    <option value="43">43</option>
+    <option value="44">44</option>
+    <option value="45">45</option>
+    <option value="46">46</option>
+    <option value="47">47</option>
+    <option value="48">48</option>
+    <option value="49">49</option>
+    <option value="50">50</option>
+    <option value="51">51</option>
+    <option value="52">52</option>
+    <option value="53">53</option>
+    <option value="54">54</option>
+    <option value="55">55</option>
+    <option value="56">56</option>
+    <option value="57">57</option>
+    <option value="58">58</option>
+    <option value="59">59</option>
+</select>
+
+<p id="result-wrapper">现在距离 2001年1月1日星期X HH:MM:SS 还有 X 天 X 小时 X 分 X 秒</p>
+<p id="123"></p>
+
+<script>
+    window.onload = function () {
+          setInterval(function () {
+              main();
+              document.getElementById("123").innerHTML = Date();
+          },1000);
+      };
+    // window.onload = function () {
+      let leapYear = {1:31,2:29,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31};
+      let commonYear = {1:31,2:28,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31};
+      function getSelectValue(id)//获得select的选中值
+      {
+          myselect=document.getElementById(id);
+          var index=myselect.selectedIndex ; // selectedIndex代表的是你所选中项的index
+          return myselect.options[index].text;
+      }
+      function main() {
+          let re = document.getElementById("result-wrapper");
+          let year = parseInt(getSelectValue("year-select"));
+          let mon = parseInt(getSelectValue("month-select"));
+          let day = parseInt(getSelectValue("day-select"));
+          let h = parseInt(getSelectValue("hour-select"));
+          let m = parseInt(getSelectValue("minite-select"));
+          let s = parseInt(getSelectValue("second-select"));
+          let index = year.selectedIndex;
+          let today = new Date();
+          let now_year = today.getFullYear();
+          let now_mon = today.getMonth()+1;
+          let now_date = today.getDay();
+          let now_day = today.getDate();
+          let now_h = today.getHours();
+          let now_m = today.getMinutes();
+          let now_s = today.getSeconds();
+          let number = 0 ;
+          let dayNum, hourNum,minNum, secNum;
+          let number1,number2,number3,number4,temp;
+          let now_time = now_year + "-" + addZero(now_mon) + '-' + addZero(now_day) + 'T' + addZero(now_h) + ':' + addZero(now_m) + ':' + addZero(now_s);
+          let time = addZero(year) + '-' + addZero(mon) + '-' + addZero(day) + 'T' + addZero(h) + ':' + addZero(m) + ':' + addZero(s);
+          let data = new Date(time);
+          let date = dayOfToday(data.getUTCDay());
+          if (now_year - year > 0)
+          {
+              let i = now_year - year-1;
+              for (i; i>0; i--)
+              {
+                  if (isLeapYear(year + i))
+                  {
+                      number += 366;
+                  }
+                  else
+                  {
+                      number += 365;
+                  }
+              }
+              number1 = number + dayOfFront(now_year, now_mon, now_day) + dayOfAfter(year, mon, day);
+              number2 = timeOfAfter(h, m, s);
+              number3 = now_h * 3600 + now_m * 60 + now_s;
+              number4 = number2 + number3;
+              if (number4 >= 24 * 3600)
+              {
+                  dayNum = Math.abs(number1 + 1);
+                  hourNum = Math.floor((number4 - (24 * 3600))/3600);
+                  minNum = Math.floor(((number4 - (24 * 3600))%3600)/60);
+                  secNum = (((number4 - (24 * 3600))%3600)%60);
+              }
+              else
+              {
+                  dayNum = Math.abs(number1);
+                  hourNum = Math.floor(number4/3600);
+                  minNum = Math.floor((number4%3600)/60);
+                  secNum = Math.floor(number4%3600%60);
+              }
+              temp = '已经过去';
+          }
+          else if (now_year - year === 0)
+          {
+              var d1 = Date.parse(now_time);
+              var d2 = Date.parse(time);
+              var dt = Math.abs(d1 - d2) /1000;
+              dayNum = Math.floor(dt / 86400);
+              hourNum = Math.floor(dt % 86400 / 3600);
+              minNum = Math.floor((dt % 86400 % 3600)/60);
+              secNum = Math.floor(dt % 86400 % 3600 % 60);
+              if (d1 > d2)
+              {
+                  temp = "已经过去";
+              }
+              else
+              {
+                  temp = "还有";
+              }
+              console.log(d1,d2);
+          }
+          else
+          {
+              let i = year - now_year - 1;
+              for (i; i > 0; i--)
+              {
+                  if (isLeapYear(now_year + i))
+                  {
+                      number += 366;
+                  }
+                  else
+                  {
+                      number += 365;
+                  }
+              }
+              number1 = number + dayOfAfter(now_year, now_mon, now_day) + dayOfFront(year, mon, day);
+              number2 = timeOfAfter(now_h, now_m, now_s);
+              number3 = parseInt(h * 3600 + m * 60 + s);
+              number4 = number2 + number3;
+              if (number4 >= parseInt(24*3600))
+              {
+                  dayNum = number1 + 1;
+                  hourNum = Math.floor((number4 - (24 * 3600))/3600);
+                  minNum = Math.floor(((number4 - (24 * 3600))%3600)/60);
+                  secNum = (((number4 - (24 * 3600))%3600)%60);
+              }
+              else
+              {
+                  dayNum = number1;
+                  hourNum = Math.floor(number4/3600);
+                  minNum = Math.floor((number4%3600)/60);
+                  secNum = Math.floor(number4%3600%60);
+              }
+              temp = "还有";
+          }
+          re.innerHTML = '现在距离' + year + '年' + mon + '月' + day + '日' + date+ " " + h + ':' + m + ':' + s +  temp +
+              dayNum + '天' + hourNum + '小时' + minNum + '分' + secNum + '秒';
+          // setTimeout('main()',500);
+      }
+      
+      function dayOfFront(year1,mon1, day1) //计算本年中这一天之前有多少天
+      {
+          let allDay = 0;
+          for (var i = 1; i < mon1; i++)
+          {
+              if (isLeapYear(year1))
+              {
+                  allDay = leapYear[i] + allDay;
+              }
+              else
+              {
+                  allDay = commonYear[i] + allDay;
+              }
+          }
+          return allDay + day1 - 1;
+      }
+      function dayOfAfter(year2, mon2, day2) //计算本年中这一天之后有多少天
+      {
+          let allDay = 0;
+          let fox = 0;
+          for (var i = 12; i >= mon2; i--)
+          {
+              if (isLeapYear(year2))
+              {
+                  allDay = leapYear[i] + allDay;
+              }
+              else
+              {
+                  allDay = commonYear[i] + allDay;
+              }
+          }
+          return allDay - day2;
+      }
+      function timeOfAfter(h2, m2, s2)
+      {
+          var seconds_after = (60 - s2) + (59 - m2) * 60 + (23 - h2) * 3600;
+          return seconds_after;
+      }
+      function isLeapYear(x)//判断是否是闰年
+      {
+          if (x % 100 === 0 && x % 400 ===0)
+          {
+              return true;
+          }
+          else if (x % 100 !==0 && x % 4 === 0)
+          {
+              return true;
+          }
+          else
+          {
+              return false;
+          }
+      }
+      function dayOfToday(y) //更改星期
+      {
+          switch (y)
+          {
+              case 0 : return "星期日";
+              case 1 : return "星期一";
+              case 2 : return "星期二";
+              case 3 : return "星期三";
+              case 4 : return "星期四";
+              case 5 : return "星期五";
+              case 6 : return "星期六";
+          }
+      }
+      function addZero(z) //0补空位
+      {
+          if (z < 10)
+          {
+              z = "0" + z;
+          }
+          return z;
+      }
+    // };
+</script>
+</body>
+</html>
+
+© 2018 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+
+Press h to open a hovercard with more details.
+
+Skip to content
+
+    Pull requests
+    Issues
+    Marketplace
+    Explore
+
+    @Zou150
+
+0
+🔖 Release-only subscription
+
+You can now limit a repository's notifications exclusively to releases. Use it to follow your favorite repositories!
+0
+
+    1
+
+PhilFitz/IFE-Task
+Code
+Issues 0
+Pull requests 0
+Projects 0
+Wiki
+Insights
+IFE-Task/day25-27/day25_5.html
+f7bc6bc on 2 Oct
+@PhilFitz PhilFitz 倒数开始 滴答滴 滴答滴
+447 lines (425 sloc) 16.5 KB
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <select id="year-select">
+        <option value="2015">2015</option>
+        <option value="2016">2016</option>
+        <option value="2017">2017</option>
+        <option value="2018">2018</option>
+        <option value="2019">2019</option>
+    </select>
+
+    <select id="month-select">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+    </select>
+
+    <select id="day-select">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+    </select>
+
+    <select id="hour-select">
+        <option value="0">00</option>
+        <option value="1">01</option>
+        <option value="2">02</option>
+        <option value="3">03</option>
+        <option value="4">04</option>
+        <option value="5">05</option>
+        <option value="6">06</option>
+        <option value="7">07</option>
+        <option value="8">08</option>
+        <option value="9">09</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+    </select>
+
+    <select id="minite-select">
+        <option value="0">00</option>
+        <option value="1">01</option>
+        <option value="2">02</option>
+        <option value="3">03</option>
+        <option value="4">04</option>
+        <option value="5">05</option>
+        <option value="6">06</option>
+        <option value="7">07</option>
+        <option value="8">08</option>
+        <option value="9">09</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+        <option value="32">32</option>
+        <option value="33">33</option>
+        <option value="34">34</option>
+        <option value="35">35</option>
+        <option value="36">36</option>
+        <option value="37">37</option>
+        <option value="38">38</option>
+        <option value="39">39</option>
+        <option value="40">40</option>
+        <option value="41">41</option>
+        <option value="42">42</option>
+        <option value="43">43</option>
+        <option value="44">44</option>
+        <option value="45">45</option>
+        <option value="46">46</option>
+        <option value="47">47</option>
+        <option value="48">48</option>
+        <option value="49">49</option>
+        <option value="50">50</option>
+        <option value="51">51</option>
+        <option value="52">52</option>
+        <option value="53">53</option>
+        <option value="54">54</option>
+        <option value="55">55</option>
+        <option value="56">56</option>
+        <option value="57">57</option>
+        <option value="58">58</option>
+        <option value="59">59</option>
+    </select>
+
+    <select id="second-select">
+        <option value="0">00</option>
+        <option value="1">01</option>
+        <option value="2">02</option>
+        <option value="3">03</option>
+        <option value="4">04</option>
+        <option value="5">05</option>
+        <option value="6">06</option>
+        <option value="7">07</option>
+        <option value="8">08</option>
+        <option value="9">09</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+        <option value="32">32</option>
+        <option value="33">33</option>
+        <option value="34">34</option>
+        <option value="35">35</option>
+        <option value="36">36</option>
+        <option value="37">37</option>
+        <option value="38">38</option>
+        <option value="39">39</option>
+        <option value="40">40</option>
+        <option value="41">41</option>
+        <option value="42">42</option>
+        <option value="43">43</option>
+        <option value="44">44</option>
+        <option value="45">45</option>
+        <option value="46">46</option>
+        <option value="47">47</option>
+        <option value="48">48</option>
+        <option value="49">49</option>
+        <option value="50">50</option>
+        <option value="51">51</option>
+        <option value="52">52</option>
+        <option value="53">53</option>
+        <option value="54">54</option>
+        <option value="55">55</option>
+        <option value="56">56</option>
+        <option value="57">57</option>
+        <option value="58">58</option>
+        <option value="59">59</option>
+    </select>
+
+    <p id="result-wrapper">现在距离 2001年1月1日星期X HH:MM:SS 还有 X 天 X 小时 X 分 X 秒</p>
+    <p id="123"></p>
+
+    <script>
+        window.onload = function () {
+              setInterval(function () {
+                  main();
+                  document.getElementById("123").innerHTML = Date();
+              },1000);
+          };
+        // window.onload = function () {
+          let leapYear = {1:31,2:29,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31};
+          let commonYear = {1:31,2:28,3:31,4:30,5:31,6:30,7:31,8:31,9:30,10:31,11:30,12:31};
+          function getSelectValue(id)//获得select的选中值
+          {
+              myselect=document.getElementById(id);
+              var index=myselect.selectedIndex ; // selectedIndex代表的是你所选中项的index
+              return myselect.options[index].text;
+          }
+          function main() {
+              let re = document.getElementById("result-wrapper");
+              let year = parseInt(getSelectValue("year-select"));
+              let mon = parseInt(getSelectValue("month-select"));
+              let day = parseInt(getSelectValue("day-select"));
+              let h = parseInt(getSelectValue("hour-select"));
+              let m = parseInt(getSelectValue("minite-select"));
+              let s = parseInt(getSelectValue("second-select"));
+              let index = year.selectedIndex;
+              let today = new Date();
+              let now_year = today.getFullYear();
+              let now_mon = today.getMonth()+1;
+              let now_date = today.getDay();
+              let now_day = today.getDate();
+              let now_h = today.getHours();
+              let now_m = today.getMinutes();
+              let now_s = today.getSeconds();
+              let number = 0 ;
+              let dayNum, hourNum,minNum, secNum;
+              let number1,number2,number3,number4,temp;
+              let now_time = now_year + "-" + addZero(now_mon) + '-' + addZero(now_day) + 'T' + addZero(now_h) + ':' + addZero(now_m) + ':' + addZero(now_s);
+              let time = addZero(year) + '-' + addZero(mon) + '-' + addZero(day) + 'T' + addZero(h) + ':' + addZero(m) + ':' + addZero(s);
+              let data = new Date(time);
+              let date = dayOfToday(data.getUTCDay());
+              if (now_year - year > 0)
+              {
+                  let i = now_year - year-1;
+                  for (i; i>0; i--)
+                  {
+                      if (isLeapYear(year + i))
+                      {
+                          number += 366;
+                      }
+                      else
+                      {
+                          number += 365;
+                      }
+                  }
+                  number1 = number + dayOfFront(now_year, now_mon, now_day) + dayOfAfter(year, mon, day);
+                  number2 = timeOfAfter(h, m, s);
+                  number3 = now_h * 3600 + now_m * 60 + now_s;
+                  number4 = number2 + number3;
+                  if (number4 >= 24 * 3600)
+                  {
+                      dayNum = Math.abs(number1 + 1);
+                      hourNum = Math.floor((number4 - (24 * 3600))/3600);
+                      minNum = Math.floor(((number4 - (24 * 3600))%3600)/60);
+                      secNum = (((number4 - (24 * 3600))%3600)%60);
+                  }
+                  else
+                  {
+                      dayNum = Math.abs(number1);
+                      hourNum = Math.floor(number4/3600);
+                      minNum = Math.floor((number4%3600)/60);
+                      secNum = Math.floor(number4%3600%60);
+                  }
+                  temp = '已经过去';
+              }
+              else if (now_year - year === 0)
+              {
+                  var d1 = Date.parse(now_time);
+                  var d2 = Date.parse(time);
+                  var dt = Math.abs(d1 - d2) /1000;
+                  dayNum = Math.floor(dt / 86400);
+                  hourNum = Math.floor(dt % 86400 / 3600);
+                  minNum = Math.floor((dt % 86400 % 3600)/60);
+                  secNum = Math.floor(dt % 86400 % 3600 % 60);
+                  if (d1 > d2)
+                  {
+                      temp = "已经过去";
+                  }
+                  else
+                  {
+                      temp = "还有";
+                  }
+                  console.log(d1,d2);
+              }
+              else
+              {
+                  let i = year - now_year - 1;
+                  for (i; i > 0; i--)
+                  {
+                      if (isLeapYear(now_year + i))
+                      {
+                          number += 366;
+                      }
+                      else
+                      {
+                          number += 365;
+                      }
+                  }
+                  number1 = number + dayOfAfter(now_year, now_mon, now_day) + dayOfFront(year, mon, day);
+                  number2 = timeOfAfter(now_h, now_m, now_s);
+                  number3 = parseInt(h * 3600 + m * 60 + s);
+                  number4 = number2 + number3;
+                  if (number4 >= parseInt(24*3600))
+                  {
+                      dayNum = number1 + 1;
+                      hourNum = Math.floor((number4 - (24 * 3600))/3600);
+                      minNum = Math.floor(((number4 - (24 * 3600))%3600)/60);
+                      secNum = (((number4 - (24 * 3600))%3600)%60);
+                  }
+                  else
+                  {
+                      dayNum = number1;
+                      hourNum = Math.floor(number4/3600);
+                      minNum = Math.floor((number4%3600)/60);
+                      secNum = Math.floor(number4%3600%60);
+                  }
+                  temp = "还有";
+              }
+              re.innerHTML = '现在距离' + year + '年' + mon + '月' + day + '日' + date+ " " + h + ':' + m + ':' + s +  temp +
+                  dayNum + '天' + hourNum + '小时' + minNum + '分' + secNum + '秒';
+              // setTimeout('main()',500);
+          }
+          
+          function dayOfFront(year1,mon1, day1) //计算本年中这一天之前有多少天
+          {
+              let allDay = 0;
+              for (var i = 1; i < mon1; i++)
+              {
+                  if (isLeapYear(year1))
+                  {
+                      allDay = leapYear[i] + allDay;
+                  }
+                  else
+                  {
+                      allDay = commonYear[i] + allDay;
+                  }
+              }
+              return allDay + day1 - 1;
+          }
+          function dayOfAfter(year2, mon2, day2) //计算本年中这一天之后有多少天
+          {
+              let allDay = 0;
+              let fox = 0;
+              for (var i = 12; i >= mon2; i--)
+              {
+                  if (isLeapYear(year2))
+                  {
+                      allDay = leapYear[i] + allDay;
+                  }
+                  else
+                  {
+                      allDay = commonYear[i] + allDay;
+                  }
+              }
+              return allDay - day2;
+          }
+          function timeOfAfter(h2, m2, s2)
+          {
+              var seconds_after = (60 - s2) + (59 - m2) * 60 + (23 - h2) * 3600;
+              return seconds_after;
+          }
+          function isLeapYear(x)//判断是否是闰年
+          {
+              if (x % 100 === 0 && x % 400 ===0)
+              {
+                  return true;
+              }
+              else if (x % 100 !==0 && x % 4 === 0)
+              {
+                  return true;
+              }
+              else
+              {
+                  return false;
+              }
+          }
+          function dayOfToday(y) //更改星期
+          {
+              switch (y)
+              {
+                  case 0 : return "星期日";
+                  case 1 : return "星期一";
+                  case 2 : return "星期二";
+                  case 3 : return "星期三";
+                  case 4 : return "星期四";
+                  case 5 : return "星期五";
+                  case 6 : return "星期六";
+              }
+          }
+          function addZero(z) //0补空位
+          {
+              if (z < 10)
+              {
+                  z = "0" + z;
+              }
+              return z;
+          }
+        // };
+    </script>
+</body>
+</html>
+
+    © 2018 GitHub, Inc.
+    Terms
+    Privacy
+    Security
+    Status
+    Help
+
+    Contact GitHub
+    Pricing
+    API
+    Training
+    Blog
+    About
+
+Press h to open a hovercard with more details.
