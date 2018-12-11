@@ -35,27 +35,22 @@
     </div>
 
     <script>
-        var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
-
-        
-        var inputDom = document.getElementById('email-input'),
+        var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'],
+            inputDom = document.getElementById('email-input'),
             ul = document.getElementById('email-sug-wrapper'),
             contentList = [];
 
-
+        //获取用户输入，生成提示框中的提示内容，将提示内容添加到email-sug-wrapper中
         inputDom.oninput = function() {
-            //获取用户输入，生成提示框中的提示内容，将提示内容添加到email-sug-wrapper中
             var text = getTrim(inputDom);
             clearList()
             context(text);
-            console.log(text);
-            //控制email-sug-wrapper的显示/隐藏状态
-            shoePrompt();
+            //console.log(text);//测试
+            shoePrompt();//控制email-sug-wrapper的显示/隐藏状态
         }
 
-        //获取用户输入
+        //获取用户输入,拿到input输入框的输入内容trim后返回
         function getTrim(obj) {
-            //拿到input输入框的输入内容trim后返回
             var input = obj.value;
             return input.trim();    
         }
@@ -68,27 +63,17 @@
             if(obj.length ==0) {
                 return;
             }
-
-            // if(obj.indexOf('@') !== -1) {
-            //     addr = obj.slice(0,indexOf('@'));
-            //     mail = obj.slice(indexOf('@')+1);
-            // }
-            // else {
-            //     addr = obj;
-            // }
-
             //遍历postfixList 
             for(var i = 0;i<postfixList.length;i++) {
-                //把用户输入和每一个postfix进行结合成为每一个Li
                 if(obj.indexOf('@') == -1) {
                     temp = obj + '@' + postfixList[i];
                     contentList.push(temp);
-                    addList(temp);
+                    addList(temp);//把用户输入和每一个postfix进行结合成为每一个Li
                 }
                 else {
-                    lastPostfixList = obj.slice(obj.indexOf('@')+1);
-                    excon = obj.slice(0,obj.indexOf('@')+1);
-                    if(postfixList[i].indexOf(lastPostfixList)!==-1) {
+                    mail = obj.slice(obj.indexOf('@')+1);//mail地址
+                    addr = obj.slice(0,obj.indexOf('@')+1);//前缀
+                    if(postfixList[i].indexOf(mail)!==-1) {
                         temp = excon + postfixList[i];
                         contentList.push(temp);
                         addList(temp);
@@ -99,29 +84,20 @@
                 }
             }
             return contentList;//返回生成的提示内容
-            // ul.style ='display:inline;';
         }
 
         //将提示内容添加到email-sug-wrapper中
         function addList(text) {
-            //获取生成提示框中的提示内容
             var li = document.createElement('li');
             var node = document.createTextNode(text);
             li.appendChild(node);
             ul.appendChild(li);
-            // var li='';
-            // for(option of obj) {
-            //     li += '<li>${option}</li>';
-            // }
-            // //将内容添加到email-sug-wrapper中
-            // document.getElementById('email-sug-wrapper').innerHTML = li;
         }
-
 
         //控制email-sug-wrapper的显示/隐藏状态
         function shoePrompt() {
             var content = getTrim(inputDom);
-            if (content == "") {
+            if (content == "") {//输入为空
                 hide();
             } else {
                 show();
@@ -129,13 +105,11 @@
         }
         
         function hide() {
-            //做具体隐藏提示框的操作
-            ul.style.display = "none";
+            ul.style.display = "none";//做具体隐藏提示框的操作
         }
         
         function show() {
-            //做具体显示提示框的操作
-            ul.style.display = "block";
+            ul.style.display = "block";//做具体显示提示框的操作
         }
 
         // 清空list
