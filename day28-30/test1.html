@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        #email-input {
+            height: 30px;
+        }
+        ul{
+            padding: 0em;
+        }
+        li{
+            padding-left:0px;
+            margin-left:0px; 
+        }
+    </style>
 </head>
 <body>
     <div class="wrapper">
@@ -20,11 +35,14 @@
         var output = document.getElementById('email-sug-wrapper');
 
 
-        inputDom.onclick = function() {
+        inputDom.keyup = function() {
             //获取用户输入，生成提示框中的提示内容，将提示内容添加到email-sug-wrapper中
-            
-            //控制email-sug-wrapper的显示/隐藏状态
+            var text = inputDom.value;
+            console.log(text);
+            console.log('event handle');
 
+            //控制email-sug-wrapper的显示/隐藏状态
+            
         }
         
         function getTrim(obj) {//获取用户输入
@@ -32,25 +50,58 @@
             var inputDom = obj.value;
             return inputDom.trim();    
         }
-        
-        function 生成提示框中的提示内容() {
+
+        //生成提示框中的提示内容
+        function context(obj) {
             //获取用户输入
-            遍历postfixList {
-                //把用户输入和每一个postfix进行结合成为每一个Li
+            var temp='';
+            contentList=[];
+            if(obj.length ==0) {
+                rerturn;
             }
-            返回生成的提示内容
+            //遍历postfixList 
+            for(var i = 0;i<postfixList.length;i++) {
+                //把用户输入和每一个postfix进行结合成为每一个Li
+                if(obj.index('@')== -1) {
+                    temp = obj + '@' +postfixList[i];
+                    contentList.push(temp);
+                    addList(temp);
+                }
+                else {
+                    lastPostfixList = obj.slice(obj.index('@')+1);
+                    excon = obj.slice(0,obj.index('@')+1);
+                    if(postfixList[i].indexOf(lastPostfixList)!==1) {
+                        temp = excon + postdixList[i];
+                        contentList.push(temp);
+                        addList(temp);
+                    }
+                    else {
+                        temp = obj + postfixList[i];
+                    }
+                }
+            }
+            return contentList;//返回生成的提示内容
         }
-        
-        function 将提示内容添加到email-sug-wrapper中() {
+
+        //将提示内容添加到email-sug-wrapper中
+        function addList(obj) {
             //获取生成提示框中的提示内容
+            var li='';
+            for(option of obj) {
+                li += '<li>${option}</li>';
+            }
             //将内容添加到email-sug-wrapper中
+            document.getElementById('email-sug-wrapper').innerHTML = li;
         }
-        
-        function 控制email-sug-wrapper的显示/隐藏状态() {
-            if 用户输入为空 {
-                隐藏提示框
+
+
+        //控制email-sug-wrapper的显示/隐藏状态
+        function shoePrompt(value) {
+
+            if (value) {
+                output.style.display = none;//用户输入为空,隐藏提示框
             } else {
-                显示提示框
+                output.style.display = block;//显示提示框
             }
         }
         
