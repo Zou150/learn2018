@@ -10,14 +10,21 @@
             box-sizing: border-box;
         }
         #email-input {
+            width: 200px;
             height: 30px;
         }
         ul{
-            padding: 0em;
+            display: none;
+            margin: 0;
+            padding: 0;
+            width: 201px;
+            border: 1px solid #818181;
         }
         li{
             padding-left:0px;
             margin-left:0px; 
+            height: 30px;
+            color: #818181;
         }
     </style>
 </head>
@@ -31,47 +38,58 @@
         var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
 
         
-        var inputDom = document.getElementById('email-input');
-        var output = document.getElementById('email-sug-wrapper');
+        var inputDom = document.getElementById('email-input'),
+            ul = document.getElementById('email-sug-wrapper'),
+            contentList = [];
 
 
-        inputDom.keyup = function() {
+        inputDom.oninput = function() {
             //获取用户输入，生成提示框中的提示内容，将提示内容添加到email-sug-wrapper中
-            var text = inputDom.value;
+            var text = getTrim(inputDom);
+            clearList()
+            context(text);
             console.log(text);
-            console.log('event handle');
-
             //控制email-sug-wrapper的显示/隐藏状态
-            
+            shoePrompt();
         }
-        
-        function getTrim(obj) {//获取用户输入
+
+        //获取用户输入
+        function getTrim(obj) {
             //拿到input输入框的输入内容trim后返回
-            var inputDom = obj.value;
-            return inputDom.trim();    
+            var input = obj.value;
+            return input.trim();    
         }
 
         //生成提示框中的提示内容
         function context(obj) {
-            //获取用户输入
-            var temp='';
-            contentList=[];
+            var temp='',
+                addr,
+                mail;
             if(obj.length ==0) {
-                rerturn;
+                return;
             }
+
+            // if(obj.indexOf('@') !== -1) {
+            //     addr = obj.slice(0,indexOf('@'));
+            //     mail = obj.slice(indexOf('@')+1);
+            // }
+            // else {
+            //     addr = obj;
+            // }
+
             //遍历postfixList 
             for(var i = 0;i<postfixList.length;i++) {
                 //把用户输入和每一个postfix进行结合成为每一个Li
-                if(obj.index('@')== -1) {
-                    temp = obj + '@' +postfixList[i];
+                if(obj.indexOf('@') == -1) {
+                    temp = obj + '@' + postfixList[i];
                     contentList.push(temp);
                     addList(temp);
                 }
                 else {
-                    lastPostfixList = obj.slice(obj.index('@')+1);
-                    excon = obj.slice(0,obj.index('@')+1);
-                    if(postfixList[i].indexOf(lastPostfixList)!==1) {
-                        temp = excon + postdixList[i];
+                    lastPostfixList = obj.slice(obj.indexOf('@')+1);
+                    excon = obj.slice(0,obj.indexOf('@')+1);
+                    if(postfixList[i].indexOf(lastPostfixList)!==-1) {
+                        temp = excon + postfixList[i];
                         contentList.push(temp);
                         addList(temp);
                     }
@@ -81,37 +99,52 @@
                 }
             }
             return contentList;//返回生成的提示内容
+            // ul.style ='display:inline;';
         }
 
         //将提示内容添加到email-sug-wrapper中
-        function addList(obj) {
+        function addList(text) {
             //获取生成提示框中的提示内容
-            var li='';
-            for(option of obj) {
-                li += '<li>${option}</li>';
-            }
-            //将内容添加到email-sug-wrapper中
-            document.getElementById('email-sug-wrapper').innerHTML = li;
+            var li = document.createElement('li');
+            var node = document.createTextNode(text);
+            li.appendChild(node);
+            ul.appendChild(li);
+            // var li='';
+            // for(option of obj) {
+            //     li += '<li>${option}</li>';
+            // }
+            // //将内容添加到email-sug-wrapper中
+            // document.getElementById('email-sug-wrapper').innerHTML = li;
         }
 
 
         //控制email-sug-wrapper的显示/隐藏状态
-        function shoePrompt(value) {
-
-            if (value) {
-                output.style.display = none;//用户输入为空,隐藏提示框
+        function shoePrompt() {
+            var content = getTrim(inputDom);
+            if (content == "") {
+                hide();
             } else {
-                output.style.display = block;//显示提示框
+                show();
             }
         }
         
-        function 隐藏提示框() {
+        function hide() {
             //做具体隐藏提示框的操作
+            ul.style.display = "none";
         }
         
-        function 显示提示框() {
+        function show() {
             //做具体显示提示框的操作
+            ul.style.display = "block";
         }
+
+        // 清空list
+        function clearList() {
+            var childs = ul.childNodes;
+            for(i=childs.length-1;i>=0;i--){
+                ul.removeChild(childs[i]);               
+            }
+        }        
     </script>
 </body>
 </html>
