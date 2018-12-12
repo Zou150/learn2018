@@ -60,29 +60,67 @@
             var temp='',
                 addr,
                 mail;
-            if(obj.length ==0) {
+            if(obj.length == 0) {
                 return;
             }
-            //遍历postfixList 
+            //way 1 
+            // for(var i = 0;i<postfixList.length;i++) {
+            //     temp = obj + '@' +postfixList[i];
+            //     contentList.push(temp);
+            //     addList(temp);
+            // }
+
+            //way 2
+            // if(obj.indexOf('@') !== -1) {
+            //     addr = obj.slice(0,obj.indexOf('@'));//前缀
+            // }
+            // else {
+            //     addr = obj;
+            // }
+            // for(var i = 0;i<postfixList.length;i++) {
+            //     temp = addr + '@' +postfixList[i];
+            //     contentList.push(temp);
+            //     addList(temp);
+            // }
+
+            //way 3
+            if(obj.indexOf('@') !== -1) {
+                mail = obj.slice(obj.indexOf('@')+1);//mail地址
+                addr = obj.slice(0,obj.indexOf('@'));//前缀
+            }
+            else {
+                addr = obj;
+            }
             for(var i = 0;i<postfixList.length;i++) {
-                if(obj.indexOf('@') == -1) {
-                    temp = obj + '@' + postfixList[i];
+                if(postfixList[i].indexOf(mail) !== -1 && postfixList[i].indexOf(mail) == 0) {
+                    temp = addr + '@' + postfixList[i];
                     contentList.push(temp);
-                    addList(temp);//把用户输入和每一个postfix进行结合成为每一个Li
+                    addList(temp);
                 }
-                else {
-                    mail = obj.slice(obj.indexOf('@')+1);//mail地址
-                    addr = obj.slice(0,obj.indexOf('@')+1);//前缀
-                    if(postfixList[i].indexOf(mail)!==-1) {
-                        temp = addr + postfixList[i];
-                        contentList.push(temp);
-                        addList(temp);
-                    }
-                    else {
-                        temp = obj + postfixList[i];
-                    }
+                if(addr == obj) {
+                    temp = addr + '@' + postfixList[i];
+                    contentList.push(temp);
+                    addList(temp);
                 }
             }
+
+            // //way 3 代码优化——先直接遍历postfixList，再判断是否存在@
+            // for(var i = 0;i<postfixList.length;i++) {
+            //     if(obj.indexOf('@') !== -1) {
+            //         mail = obj.slice(obj.indexOf('@')+1);//mail地址
+            //         addr = obj.slice(0,obj.indexOf('@'));//前缀
+            //         if(postfixList[i].indexOf(mail) !== -1) {
+            //             temp = addr + '@' + postfixList[i];
+            //             contentList.push(temp);
+            //             addList(temp);
+            //         }
+            //     }
+            //     else {
+            //         temp = obj + '@' + postfixList[i];
+            //         contentList.push(temp);
+            //         addList(temp);
+            //     }
+            // }
             return contentList;//返回生成的提示内容
         }
 
