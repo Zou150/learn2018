@@ -74,7 +74,7 @@
                     mail = obj.slice(obj.indexOf('@')+1);//mail地址
                     addr = obj.slice(0,obj.indexOf('@')+1);//前缀
                     if(postfixList[i].indexOf(mail)!==-1) {
-                        temp = excon + postfixList[i];
+                        temp = addr + postfixList[i];
                         contentList.push(temp);
                         addList(temp);
                     }
