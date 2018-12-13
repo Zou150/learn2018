@@ -1,0 +1,200 @@
+
+Skip to content
+
+Pull requests
+Issues
+Marketplace
+Explore
+
+@Zou150
+
+0
+0
+
+0
+
+whoopsHzh/YellowChecken
+Code
+Issues 0
+Pull requests 0
+Projects 0
+Wiki
+Insights
+YellowChecken/js学习/28_30/email.html
+7af2bba on 9 Sep
+@whoopsHzh whoopsHzh Add files via upload
+170 lines (151 sloc) 5.71 KB
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    ul{
+        padding: 0em;
+    }
+    li{
+        padding-left:0px;
+        margin-left:0px; 
+    }
+</style>
+<title>第二十八天到第三十天 给爱的人发个邮件吧</title>
+</head>
+<body>
+    <div class="wrapper">
+            <input id="email-input" type="text">
+            <ul id="email-sug-wrapper" class="email-sug"></ul>
+        </div>
+
+    <script>
+        // 邮箱后缀List参考
+        var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+        
+        
+        var currentOpention = 0,
+            contentList = [],
+            input = document.getElementById('email-input'),
+            output =document.getElementById('email-sug-wrapper');
+        // 键盘输入事件
+        input.addEventListener('input',function() {
+            var emailStr = getInput(input);
+            clearList();
+            context(emailStr);
+            keyStyle();
+        })
+        // 获取用户输入
+        function getInput(obj) {
+            var input = obj.value;
+            return input.trim();    
+        }
+        function context(con) {
+            var temp='';
+            contentList=[];
+            if (con.length==0) {
+                return;
+            }
+            for (var i = 0;i<postfixList.length;i++){
+                if (con.indexOf("@")==-1) {
+                    temp = con+"@"+postfixList[i];
+                    contentList.push(temp);
+                    addList(temp);
+                }else{
+                    // 切割@后面的字符
+                    lastPostfixlist = con.slice(con.indexOf("@")+1);
+                    // 切割@前面的字符
+                    excon = con.slice(0,con.indexOf("@")+1);
+                    // 链接
+                    // console.log(postfixList[i].indexOf(lastPostfixlist));
+                    if (postfixList[i].indexOf(lastPostfixlist)!=-1) {
+                        temp = excon+postfixList[i];
+                        contentList.push(temp);
+                        addList(temp);
+                        }
+                    else{
+                        temp = con+postfixList[i];
+                    }
+                }
+            }
+            console.log(contentList.length)
+            output.style ='display:inline;';
+        }
+
+        
+        // 增加提示list
+        function addList(text) {
+            var ol = document.createElement('li');
+            var node = document.createTextNode(text);
+            ol.appendChild(node);
+            output.appendChild(ol);
+        }
+        // 清空list
+        function clearList() {
+            var childs = output.childNodes;
+            for(i=childs.length-1;i>=0;i--){
+                output.removeChild(childs[i]);               
+            }
+        }
+        
+        // output增加监听onclick事件
+        output.addEventListener('click',clickEven);
+        // output增加监听mouseover事件
+        output.addEventListener('mouseover',mousevoerStyle);
+        // 获取list焦点
+        function mousevoerStyle(e) {
+            var li = document.querySelectorAll('li');
+            for(itList of li){
+                itList.style.backgroundColor ='white';
+            }
+            e.target.style.backgroundColor='pink';
+        }
+        // 点击list，获取list提示到输入框
+        function clickEven(e){
+            var value = e.target.innerHTML;
+            input.value = value;
+            output.style ='display:none;';
+            focusEvent();
+        }
+        // clickEven函数后，焦点到提示框
+        function focusEvent() {
+            input.focus();
+        }
+        // 监听键盘事件
+        input.addEventListener('keydown',keyevent);
+        // 键盘事件
+        function keyevent(e){
+            var index = postfixList.length;
+            if (e.keyCode  === 38) {
+                if (currentOpention==0) {
+                    currentOpention = index-1;
+                }
+                else{
+                    currentOpention -= 1;
+                }
+                keyStyle();
+            }
+            else if(e.keyCode ===40){
+                if (currentOpention ==index-1) {
+                    currentOpention=0;
+                }
+                else{
+                    currentOpention+=1;
+                }
+                keyStyle();
+            }
+            else if(e.keyCode ===13){//enter
+                 input.value = contentList[currentOpention];
+                 output.style ='display:none;';
+            }
+        }
+        // 键盘控制style
+        function keyStyle() {
+            var list = document.querySelectorAll('li');
+            for(itList of list){
+                // itList.style.backgroundColor = 'white';    
+                   itList.style.backgroundColor = 'white';
+            }
+            list[currentOpention].style.backgroundColor='orange';
+        }
+    </script>
+</body>
+</html>
+
+© 2018 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+
+Press h to open a hovercard with more details.
