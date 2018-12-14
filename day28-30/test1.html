@@ -80,61 +80,57 @@
             // }
 
             //way 3
-            if(obj.indexOf('@') !== -1) {
-                mail = obj.slice(obj.indexOf('@')+1);//mail地址
-                addr = obj.slice(0,obj.indexOf('@'));//前缀
-            }
-            else {
-                addr = obj;
-            }
-            for(var i = 0;i<postfixList.length;i++) {
-                if(postfixList[i].indexOf(mail) !== -1) {
-                    temp = addr + '@' + postfixList[i];
-                    contentList.push(temp);
-                    addList(temp);
-                }
-                if(addr == obj) {
-                    temp = addr + '@' + postfixList[i];
-                    contentList.push(temp);
-                    addList(temp);
-                }
-            }
-            
-            if(contentList == '') {
-                for(var i = 0;i<postfixList.length;i++) {
-                    temp = addr + '@' + postfixList[i];
-                    contentList.push(temp);
-                    addList(temp);
-                }
-            }
-                console.log(contentList.length);
-                // if(contentList == '') {
-                //     console.log(contentList.length);
-                //     for(var i = 0;i<postfixList.length;i++) {
-                //         temp = addr + '@' + postfixList[i];
-                //         contentList.push(temp);
-                //         addList(temp);
-                //     }
-                // }
-                
-            // //way 3 代码优化——先直接遍历postfixList，再判断是否存在@
+            // if(obj.indexOf('@') !== -1) {
+            //     mail = obj.slice(obj.indexOf('@')+1);//mail地址
+            //     addr = obj.slice(0,obj.indexOf('@'));//前缀
+            // }
+            // else {
+            //     addr = obj;
+            // }
             // for(var i = 0;i<postfixList.length;i++) {
-            //     if(obj.indexOf('@') !== -1) {
-            //         mail = obj.slice(obj.indexOf('@')+1);//mail地址
-            //         addr = obj.slice(0,obj.indexOf('@'));//前缀
-            //         if(postfixList[i].indexOf(mail) !== -1) {
-            //             temp = addr + '@' + postfixList[i];
-            //             contentList.push(temp);
-            //             addList(temp);
-            //         }
+            //     if(postfixList[i].indexOf(mail) !== -1) {
+            //         temp = addr + '@' + postfixList[i];
+            //         contentList.push(temp);
+            //         addList(temp);
             //     }
-            //     else {
-            //         temp = obj + '@' + postfixList[i];
+            //     if(addr == obj) {
+            //         temp = addr + '@' + postfixList[i];
             //         contentList.push(temp);
             //         addList(temp);
             //     }
             // }
-            // return contentList;//返回生成的提示内容
+            
+            // if(contentList == '') {
+            //     for(var i = 0;i<postfixList.length;i++) {
+            //         temp = addr + '@' + postfixList[i];
+            //         contentList.push(temp);
+            //         addList(temp);
+            //     }
+            // }
+
+            //way 3 代码优化——先直接遍历postfixList，再判断是否存在@
+            for(var i = 0;i<postfixList.length;i++) {
+                if(obj.indexOf('@') !== -1) {
+                    mail = obj.slice(obj.indexOf('@')+1);//mail地址
+                    addr = obj.slice(0,obj.indexOf('@'));//前缀
+                    if(postfixList[i].indexOf(mail) !== -1) {
+                        temp = addr + '@' + postfixList[i];
+                        contentList.push(temp);
+                        addList(temp);
+                    }
+                    if(contentList.length < postfixList.length) {
+                        temp = addr + '@' + postfixList[i];
+                        contentList.push(temp);
+                        addList(temp);
+                    }
+                }
+                else {
+                    temp = obj + '@' + postfixList[i];
+                    contentList.push(temp);
+                    addList(temp);
+                }
+            }
+            return contentList;//返回生成的提示内容
         }
 
         //将提示内容添加到email-sug-wrapper中
