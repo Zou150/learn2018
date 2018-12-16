@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>基于DOM的思路一代码结构</title>
     <style>
         *{
             box-sizing: border-box;
@@ -41,8 +41,7 @@
 
         //获取用户输入，生成提示框中的提示内容，将提示内容添加到email-sug-wrapper中
         inputDom.oninput = function() {
-            clearList();
-            context();
+            addList();
             shoePrompt();//控制email-sug-wrapper的显示/隐藏状态
         }
 
@@ -59,27 +58,6 @@
                 temp='',
                 addr,
                 mail;
-            //way 1 
-            // for(var i = 0;i<postfixList.length;i++) {
-            //     temp = obj + '@' +postfixList[i];
-            //     contentList.push(temp);
-            //     addList(temp);
-            // }
-
-            //way 2
-            // if(obj.indexOf('@') !== -1) {
-            //     addr = obj.slice(0,obj.indexOf('@'));//前缀
-            // }
-            // else {
-            //     addr = obj;
-            // }
-            // for(var i = 0;i<postfixList.length;i++) {
-            //     temp = addr + '@' +postfixList[i];
-            //     contentList.push(temp);
-            //     addList(temp);
-            // }
-
-            //way 3
             if(obj.indexOf('@') !== -1) {
                 mail = obj.slice(obj.indexOf('@')+1);//mail地址
                 addr = obj.slice(0,obj.indexOf('@'));//前缀
@@ -90,50 +68,44 @@
             for(var i = 0;i<postfixList.length;i++) {
                 if(postfixList[i].indexOf(mail) !== -1) {
                     temp = addr + '@' + postfixList[i];
-                    contentList.push(temp);
-                    addList(temp);
+                    var li = document.createElement('li');
+                    var node = document.createTextNode(temp);
+                    li.appendChild(node);
+                    contentList.push(li);
                 }
                 if(addr == obj) {
                     temp = addr + '@' + postfixList[i];
-                    contentList.push(temp);
-                    addList(temp);
+                    var li = document.createElement('li');
+                    var node = document.createTextNode(temp);
+                    li.appendChild(node);
+                    contentList.push(li);
                 }
             }
             
             if(contentList == '') {
                 for(var i = 0;i<postfixList.length;i++) {
                     temp = addr + '@' + postfixList[i];
-                    contentList.push(temp);
-                    addList(temp);
+                    var li = document.createElement('li');
+                    var node = document.createTextNode(temp);
+                    li.appendChild(node);
+                    contentList.push(li);
                 }
             }
-
-            //way 3 代码优化——先直接遍历postfixList，再判断是否存在@
-            // for(var i = 0;i<postfixList.length;i++) {
-            //     if(obj.indexOf('@') !== -1) {
-            //         mail = obj.slice(obj.indexOf('@')+1);//mail地址
-            //         addr = obj.slice(0,obj.indexOf('@'));//前缀
-            //         if(postfixList[i].indexOf(mail) !== -1) {
-            //             temp = addr + '@' + postfixList[i];
-            //             contentList.push(temp);
-            //             addList(temp);
-            //         }
-            //     }
-            //     else {
-            //         temp = obj + '@' + postfixList[i];
-            //         contentList.push(temp);
-            //         addList(temp);
-            //     }
-            // }
             return contentList;//返回生成的提示内容
         }
 
         //将提示内容添加到email-sug-wrapper中
-        function addList(text) {
-            var ol = document.createElement('li');
-                var node = document.createTextNode(text);
-                ol.appendChild(node);
-                ul.appendChild(ol);
+        function addList() {
+            var li = context();
+            var childs = ul.childNodes;
+            for(i=childs.length-1;i>=0;i--){
+                ul.removeChild(childs[i]);               
+            }
+
+            for(var i=0;i<li.length;i++) {
+                ul.appendChild(li[i]);
+            }
+
         }
 
         //控制email-sug-wrapper的显示/隐藏状态
@@ -152,15 +124,7 @@
         
         function show() {
             ul.style.display = "block";//做具体显示提示框的操作
-        }
-
-        // 清空list
-        function clearList() {
-            var childs = ul.childNodes;
-            for(i=childs.length-1;i>=0;i--){
-                ul.removeChild(childs[i]);               
-            }
-        }        
+        }     
 
         //监听鼠标点击事件
         ul.onclick = function (obj) {
