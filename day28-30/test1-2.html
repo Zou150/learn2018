@@ -166,7 +166,6 @@
 
         // 监听特殊3个键的键盘事件，这个事件可能就是inputDom的输入监听，也有可能是另外一个，请自己测试后判断
         inputDom.onkeydown = function(e) {
-            var e = event || window.event;
             var index = ul.childNodes.length;
             if (e.keyCode == 38) {//按的是上键
                 if (nowSelectIndex !== 0) {//找到的Li不是第一个
