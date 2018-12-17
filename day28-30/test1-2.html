@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>给爱的人发个邮件吧--基于数据的代码结构</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        #email-input {
+            padding: 1%;
+            width: 200px;
+            height: 30px;
+        }
+        ul{
+            display: none;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            border: 1px solid #bbb9b9;
+        }
+        li{
+            padding: 1% 5%;
+            color: #818181;
+        }
+        .select {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <input id="email-input" type="text">
+        <ul id="email-sug-wrapper" class="email-sug"></ul>
+    </div>
+
+    <script>
+        var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'],
+            inputDom = document.getElementById('email-input'),
+            ul = document.getElementById('email-sug-wrapper'),
+            nowSelectIndex = 0;
+
+        //获取用户输入，生成提示框中的提示内容，将提示内容添加到email-sug-wrapper中
+        inputDom.oninput = function(e) {
+            if(e.keyCode !== 38 || e.keyCode !== 40 || e.keyCode !== 13) {
+                nowSelectIndex = 0;//重置选中状态
+            }
+            addList();
+            shoePrompt();//控制email-sug-wrapper的显示/隐藏状态
+        }
+
+        //获取用户输入,拿到input输入框的输入内容trim后返回
+        function getTrim() {
+            var input = inputDom.value;
+            return input.trim();    
+        }
+
+        //生成提示框中的提示内容
+        function context() {
+            var obj = getTrim(),
+                contentList = [],
+                addr,
+                mail,
+                flag = 0;
+            if(obj.indexOf('@') !== -1) {
+                mail = obj.slice(obj.indexOf('@')+1);//mail地址
+                addr = obj.slice(0,obj.indexOf('@'));//前缀
+            }
+            else {
+                addr = obj;
+            }
+            for(var i = 0;i<postfixList.length;i++) {
+                if(postfixList[i].indexOf(mail) !== -1) {
+                    contentList[i] = document.createElement('li');
+                    contentList[i].innerText = addr + '@' + postfixList[i];
+                    flag = 1;
+                    // var li = document.createElement('li');
+                    // var node = document.createTextNode(addr + '@' + postfixList[i]);
+                    // li.appendChild(node);
+                    // contentList.push(li);
+                }
+                // if(addr == obj) {
+                //     contentList[i] = document.createElement('li');
+                //     contentList[i].innerHTML = temp;
+                //     // var li = document.createElement('li');
+                //     // var node = document.createTextNode(addr + '@' + postfixList[i]);
+                //     // li.appendChild(node);
+                //     // contentList.push(li);
+                // }
+            }
+            
+            if(flag == 0) {
+                for(var i = 0;i<postfixList.length;i++) {
+                    contentList[i] = document.createElement('li');
+                    contentList[i].innerText = addr + '@' + postfixList[i];
+                    // var li = document.createElement('li');
+                    // var node = document.createTextNode(addr + '@' + postfixList[i]);
+                    // li.appendChild(node);
+                    // contentList.push(li);
+                }
+            }
+            // //去除res数组中的空值
+            for (var i = 0; i < contentList.length; i++) {
+                if (typeof contentList[i] == "undefined" || contentList[i].innerText == "") {
+                    contentList.splice(i, 1);
+                    i--;
+                }
+            }
+            //将第nowSelectIndex个Li的样式设置为被选样式
+            console.log(contentList);
+            console.log(nowSelectIndex);
+            contentList[nowSelectIndex].className = 'select';
+            return contentList;//返回生成的提示内容
+        }
+        
+        //将提示内容添加到email-sug-wrapper中
+        function addList() {
+            var li = context();
+            var childs = ul.childNodes;
+            for(i=childs.length-1;i>=0;i--){
+                ul.removeChild(childs[i]);               
+            }
+            for(var i=0;i<li.length;i++) {
+                ul.appendChild(li[i]);
+            }
+        }
+
+        //控制email-sug-wrapper的显示/隐藏状态
+        function shoePrompt() {
+            var content = getTrim(inputDom);
+            if (content == "") {//输入为空
+                hide();
+            } else {
+                show();
+            }
+        }
+        
+        function hide() {
+            ul.style.display = "none";//做具体隐藏提示框的操作
+        }
+        
+        function show() {
+            ul.style.display = "block";//做具体显示提示框的操作
+        }     
+
+        //监听鼠标点击事件
+        ul.onclick = function (obj) {
+            if(obj.target.nodeName.toLowerCase() == 'li') {//被点击的是不是提示框中的Li节点
+                var text = obj.target.innerHTML;//获取被点击Li对应的提示内容
+                inputDom.value = text;//将内容放到input输入框中
+                hide();//隐藏输入框
+            }
+            return inputDom.focus();
+        }
+        
+        //设置style
+        function keyStyle() {
+            var list = document.querySelectorAll('li');
+            for(itlist of list) {
+                itlist.style.backgroundColor = 'white';
+            }
+            list[nowSelectIndex].style.backgroundColor = 'pink';
+        }
+
+        // 监听特殊3个键的键盘事件，这个事件可能就是inputDom的输入监听，也有可能是另外一个，请自己测试后判断
+        inputDom.onkeydown = function(e) {
+            var e = event || window.event;
+            var index = ul.childNodes.length;
+            if (e.keyCode == 38) {//按的是上键
+                if (nowSelectIndex !== 0) {//找到的Li不是第一个
+                    nowSelectIndex --;//将它的前一个Li设为选中
+                } else {
+                    nowSelectIndex = index-1;//将最后一个Li设为选中
+                }
+                keyStyle();
+            }
+            else if (e.keyCode == 40) {//按的是下键
+                if (nowSelectIndex !== index-1) {//找到的Li不是最后一个
+                    nowSelectIndex ++;//将它的下一个Li设为选中
+                } else {
+                    nowSelectIndex = 0;//将第一个Li设为选中
+                }
+                keyStyle();
+            }
+            else if (e.keyCode == 13) {//按的是回车
+                inputDom.value = ul.childNodes[nowSelectIndex].innerHTML;//将找到的Li的HTML内容解码后填到input中
+                hide();//隐藏提示框
+            }
+            else if(e.keyCode == 27) {
+                inputDom.select();
+            }
+        }
+
+        //鼠标焦点事件
+        ul.onmouseover = function(e) {
+            var li = document.querySelectorAll('li');
+            for(itlist of li) {
+                itlist.style.backgroundColor = 'white';
+            }
+            e.target.style.backgroundColor = 'aqua';
+        }
+
+        inputDom.focus();
+    </script>
+</body>
+</html>

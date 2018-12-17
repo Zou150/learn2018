@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>基于DOM的思路一代码结构</title>
+    <title>给爱的人发个邮件吧--基于DOM的思路一代码结构</title>
     <style>
         *{
             box-sizing: border-box;
         }
         #email-input {
+            padding: 1%;
             width: 200px;
             height: 30px;
         }
@@ -17,14 +18,18 @@
             display: none;
             margin: 0;
             padding: 0;
-            width: 201px;
-            border: 1px solid #818181;
+            width: 200px;
+            border: 1px solid #bbb9b9;
         }
         li{
-            padding-left:0px;
-            margin-left:0px; 
-            height: 30px;
+            padding: 1% 5%;
             color: #818181;
+        }
+        li:hover {
+            background-color: aqua;
+        }
+        .select {
+            background-color: pink;
         }
     </style>
 </head>
@@ -37,10 +42,15 @@
     <script>
         var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'],
             inputDom = document.getElementById('email-input'),
-            ul = document.getElementById('email-sug-wrapper');
+            ul = document.getElementById('email-sug-wrapper'),
+            contentList = [],
+            nowSelectIndex = 0;
 
         //获取用户输入，生成提示框中的提示内容，将提示内容添加到email-sug-wrapper中
-        inputDom.oninput = function() {
+        inputDom.oninput = function(e) {
+            if(e.keyCode !== 38 || e.keyCode !== 40 || e.keyCode !== 13) {
+                reSelect();
+            }
             addList();
             shoePrompt();//控制email-sug-wrapper的显示/隐藏状态
         }
@@ -93,7 +103,7 @@
             }
             return contentList;//返回生成的提示内容
         }
-
+        
         //将提示内容添加到email-sug-wrapper中
         function addList() {
             var li = context();
@@ -101,11 +111,9 @@
             for(i=childs.length-1;i>=0;i--){
                 ul.removeChild(childs[i]);               
             }
-
             for(var i=0;i<li.length;i++) {
                 ul.appendChild(li[i]);
             }
-
         }
 
         //控制email-sug-wrapper的显示/隐藏状态
@@ -133,8 +141,53 @@
                 inputDom.value = text;//将内容放到input输入框中
                 hide();//隐藏输入框
             }
-            return inputDom.focus();
+            return inputDom.focus();//用户点击鼠标，进行提示选择后，焦点依然在输入框中
         }
+        
+        //重置选中状态
+        function reSelect() {
+            var nowSelect = document.getElementsByClassName('select');//找到当前为选中状态的Li
+            if (nowSelect !== ul.firstChild && nowSelect == undefined) {//当前选中状态Li不是第一个
+                nowSelect.className = '';//清除掉它的选中状态
+                ul.firstChild.className = 'select';//设置第一个Li为选中状态
+            }
+        }
+
+        // 监听特殊3个键的键盘事件，这个事件可能就是inputDom的输入监听，也有可能是另外一个，请自己测试后判断
+        inputDom.onkeydown = function(e) {
+            var li = document.querySelectorAll('li');
+            if (e.keyCode == 38) {//按的是上键
+                if (nowSelectIndex !== 0) {//找到的Li不是第一个
+                    li[nowSelectIndex].className = '';
+                    nowSelectIndex -= 1;//将它的前一个Li设为选中
+                    li[nowSelectIndex].className = 'select';
+                } else {
+                    li[nowSelectIndex].className = '';
+                    nowSelectIndex = li.length-1;//将最后一个Li设为选中
+                    li[nowSelectIndex].className = 'select';
+                }
+            }
+            else if (e.keyCode == 40) {//按的是下键
+                if (nowSelectIndex !== li.length-1) {//找到的Li不是最后一个
+                    li[nowSelectIndex].className = '';
+                    nowSelectIndex += 1;//将它的下一个Li设为选中
+                    li[nowSelectIndex].className = 'select';
+                } else {
+                    li[nowSelectIndex].className = '';
+                    nowSelectIndex = 0;//将第一个Li设为选中
+                    li[nowSelectIndex].className = 'select';
+                }
+            }
+            else if (e.keyCode == 13) {//按的是回车
+                inputDom.value = li[nowSelectIndex].innerHTML;//将找到的Li的HTML内容解码后填到input中
+                hide();//隐藏提示框
+            }
+            else if(e.keyCode == 27) {//用户按ESC键的时候，对用户输入进行全选
+                inputDom.select();
+            }
+        }
+
+        inputDom.focus();//一进入页面就将焦点放在输入框中
     </script>
 </body>
 </html>
