@@ -27,7 +27,7 @@ var region = document.getElementById('region-select'),
         return SelectDate;
     }
 
-        //渲染新的表格
+    //渲染新的表格
     function reTable(date) {
         var Tcol = 14,//输出表头：商品、地区、1月、2月、…… 12月
             string = "<table border=\'1\'><thead><tr><th>商品</th><th>地区</th>";
@@ -50,3 +50,4 @@ var region = document.getElementById('region-select'),
         //把生成的HTML内容赋给table-wrapper
         table.innerHTML = string;
     }
+    
