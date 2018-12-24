@@ -1,7 +1,4 @@
-var regionX = document.getElementById('region-radio-wrapper'),
-    productX = document.getElementById('product-radio-wrapper');
-
-    //生成一组CheckBox
+//生成一组CheckBox
     function setCheckBox(obj,data) {
         var input = document.createElement('input');
         input.setAttribute('type','checkbox');
@@ -16,7 +13,6 @@ var regionX = document.getElementById('region-radio-wrapper'),
             child.setAttribute('type','checkbox');
             child.setAttribute('value',data[i].value);
             child.setAttribute('checkbox-type','child');
-            // child.setAttribute('class',e);
             obj.appendChild(child);
             var text2 = document.createTextNode(data[i].text);
             obj.appendChild(child);
@@ -63,51 +59,8 @@ var regionX = document.getElementById('region-radio-wrapper'),
                             obj.childNodes[0].checked = false;
                         }
                     }
-                    reTable(getDate2());
+                    reTable(getDate());
                 }
         //     }
         // }
-    }
-
-    //生成一组CheckBox
-    setCheckBox(regionX,[{
-        value: "华东",
-        text: "华东"
-    },{
-        value: '华南',
-        text: '华南'
-    },{
-        value: '华北',
-        text: '华北'
-    }]);
-
-    setCheckBox(productX,[{
-        value: '手机',
-        text: '手机'
-    },{
-        value: '笔记本',
-        text: '笔记本'
-    },{
-        value: '智能音箱',
-        text: '智能音箱'
-    }]);
-
-    //获取数据
-    function getDate2() {
-        //根据表单选择进行数据多维度的筛选
-        var radioCheckbox = document.querySelectorAll('input:checked'),
-            list =[],
-            SelectDate = [];
-        for(var i =0;i<radioCheckbox.length;i++) {
-            if(radioCheckbox[i].value !== '全选') {
-                list.push(radioCheckbox[i].value);
-            }
-        }
-        for(var i=0;i<sourceData.length;i++) {
-            if(list.indexOf(sourceData[i].region) !== -1 && list.indexOf(sourceData[i].product) !== -1) {
-                SelectDate.push(sourceData[i]); 
-            }
-        }
-        console.log(SelectDate);
-        return SelectDate;
     }

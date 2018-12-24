@@ -1,0 +1,39 @@
+
+select {
+    width: 100px;
+    height: 30px;
+    margin-left: 20px;
+}
+
+div {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+table {
+    border-collapse: collapse;
+}
+table thead tr {
+    height: 48px;
+}
+
+table thead th,
+table td {
+    padding: 5px 14px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+td,
+th {
+    width: 40px;
+    height: 18px;
+}
+
+table thead th:first-child {
+    width: 86px;
+    background: lightblue;
+}
+
+
+
+
+
