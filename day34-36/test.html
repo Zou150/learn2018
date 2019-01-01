@@ -9,24 +9,13 @@
     <link rel="stylesheet" href="./css/test.css">
 </head>
 <body>
-        <select id="region-select">
-                <option >请选择</option>
-                <option value='华东'>华东</option>
-                <option value='华南'>华南</option>
-                <option value='华北'>华北</option>
-            </select>
-        
-            <select id="product-select">
-                <option >请选择</option>
-                <option value='手机'>手机</option>
-                <option value='笔记本'>笔记本</option>
-                <option value='智能音箱'>智能音箱</option>
-            </select>
     <div id="region-radio-wrapper"></div>
     <div id="product-radio-wrapper"></div>  
 
-    <div id="bar-warpper"></div>
-    <canvas id="canvas"></canvas>
+    <div id="svg-warpper"></div>
+    <div id="canvas-wrapper">
+        <canvas id="canvas"></canvas>
+    </div>
     <div id="table-wrapper"></div>
 
     <script src="./js/bar.js"></script>
@@ -34,7 +23,7 @@
 
     <script>
         var data = [120, 100, 140, 160, 180, 185, 190, 210, 230, 245, 255, 270];
-        var bar = document.getElementById('bar-warpper');
+        var bar = document.getElementById('svg-warpper');
         bar.innerHTML = drawHistogram(data);
         drawLine(data);
     </script>

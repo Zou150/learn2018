@@ -27,13 +27,13 @@ var regionArr = [{
         text: '智能音箱'
     }];
 
-region.onchange = function() {
-    //渲染新的表格(根据select选项获取数据)
-    reTable(getDate());
-}
-product.onchange = function() {
-    reTable(getDate());
-}
+// region.onchange = function() {
+//     //渲染新的表格(根据select选项获取数据)
+//     reTable(getDate());
+// }
+// product.onchange = function() {
+//     reTable(getDate());
+// }
 
 
 //生成两组CheckBox

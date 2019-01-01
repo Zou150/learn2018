@@ -1,17 +1,18 @@
 function getDate() {
     //根据select选项获取数据
-    var Select1 = region.selectedIndex,
-        Select2 = product.selectedIndex,
-        SelectedRegion = region.options[Select1].value,
-        SelectedProduct = product.options[Select2].value,
-        SelectDate = [];
-    for(var i=0;i<sourceData.length;i++) {
-        if(sourceData[i].region == SelectedRegion && sourceData[i].product == SelectedProduct) {
-            SelectDate.push(sourceData[i]);
-        }
-    }
+    // var Select1 = region.selectedIndex,
+    //     Select2 = product.selectedIndex,
+    //     SelectedRegion = region.options[Select1].value,
+    //     SelectedProduct = product.options[Select2].value,
+    //     SelectDate = [];
+    // for(var i=0;i<sourceData.length;i++) {
+    //     if(sourceData[i].region == SelectedRegion && sourceData[i].product == SelectedProduct) {
+    //         SelectDate.push(sourceData[i]);
+    //     }
+    // }
 
-    //根据checkbox选项获取数据    
+    //根据checkbox选项获取数据   
+    var SelectDate = []; 
     var radioCheckbox = document.querySelectorAll('input:checked'),
         list =[];
     for(var i =0;i<radioCheckbox.length;i++) {
