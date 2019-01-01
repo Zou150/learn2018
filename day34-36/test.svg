@@ -1,0 +1,57 @@
+<?xml version='1.0' standalone='no'?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<!-- //直线 -->
+<!-- <svg width='100%' height="100%" version='1.1'
+xmlns='http://www.w3.org/2000/svg'>
+
+<line x1='0' y1='0' x2='300' y2='300'
+style='stroke-width: 2;stroke:rgb(0,0,0)' />
+
+</svg> -->
+
+<!-- //矩形 -->
+<!-- <svg width='100%' height="100%" version='1.1'
+xmlns='http://www.w3.org/2000/svg'>
+
+<rect x='10' y='10' width='100' height='200'
+style='fill:rgb(0,0,255);stroke-width: 2;
+stroke:rgb(0,0,0)' />
+
+</svg> -->
+
+<!-- //圆形 -->
+<!-- <svg width='100%' height="100%" version='1.1'
+xmlns='http://www.w3.org/2000/svg'>
+
+<circle cx='100' cy='100' r='20'
+style='fill:rgb(0,0,255);stroke-width: 1;
+stroke:rgb(0,0,0)' />
+<text x='0' y='0' style='font-size: 24px;'>hello</text>
+
+</svg> -->
+
+<!-- //文字 -->
+<!-- <svg width='100%' height="100%" version='1.0'
+xmlns='http://www.w3.org/2000/svg'>
+
+<text x='100' y='100' style='font-family:Verdana;font-size:24'> hello SVG!
+</text>
+
+</svg> -->
+
+<!-- //一朵花 -->
+<!-- //一颗小树 -->
+
+<!-- //先来个柱状图 -->
+<svg width='100%' height="100%" version='1.0'
+xmlns='http://www.w3.org/2000/svg'>
+
+<line x1='20' y1='300' x2='300' y2='300'
+style='stroke-width: 2;stroke:rgb(0,0,0)' />
+
+<line x1='20' y1='300' x2='20' y2='20'
+style='stroke-width: 2;stroke:rgb(0,0,0)' />
+
+</svg>

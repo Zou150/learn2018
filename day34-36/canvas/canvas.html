@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas小练习</title>
+
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="line" width="300" height="150"></canvas>
+    <canvas id="rect" width="300" height="150"></canvas>
+    <canvas id="circle" width="300" height="150"></canvas>
+    <canvas id="text" width="300" height="150"></canvas>
+    <canvas id="clock" width="300" height="150"></canvas>
+    <canvas id="canvas6" width="300" height="150"></canvas>
+
+    <script>
+        function draw() {
+            var line = document.getElementById("line");
+            if(line.getContext) {
+                var ctx = line.getContext('2d');
+                ctx.beginPath();
+                ctx.moveTo(10,10);
+                ctx.lineTo(200,100);
+                ctx.stroke();
+            }
+            var rect = document.getElementById("rect");
+            if(rect.getContext) {
+                var ctx = rect.getContext("2d");
+                ctx.beginPath();
+                ctx.rect(10,10,100,50);
+                ctx.stroke();
+            }
+            var circle = document.getElementById("circle");
+            if(circle.getContext) {
+                var ctx = circle.getContext("2d");
+                ctx.beginPath();
+                ctx.arc(150,75,50,0,Math.PI * 2);
+                ctx.stroke();
+            }
+            var text = document.getElementById("text");
+            if(text.getContext) {
+                var ctx = text.getContext("2d");
+                ctx.beginPath();
+                ctx.font = "32px consals";
+                ctx.fillText("Hello World",10,50);
+            }
+        }
+
+        draw();
+    </script>
+</body>
+</html>
