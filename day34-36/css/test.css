@@ -1,11 +1,5 @@
 
-select {
-    width: 100px;
-    height: 30px;
-    margin-left: 20px;
-}
-
-div {
+body {
     margin-left: 20px;
     margin-top: 10px;
 }
@@ -13,7 +7,7 @@ table {
     border-collapse: collapse;
 }
 table thead tr {
-    height: 48px;
+    height: 24px;
 }
 
 table thead th,
@@ -25,12 +19,16 @@ table td {
 td,
 th {
     width: 40px;
-    height: 18px;
+    height: 10px;
 }
 
 table thead th:first-child {
     width: 86px;
     background: lightblue;
+}
+
+tr:hover {
+    color: red;
 }
 
 

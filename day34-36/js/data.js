@@ -1,20 +1,8 @@
 function getDate() {
-    //根据select选项获取数据
-    // var Select1 = region.selectedIndex,
-    //     Select2 = product.selectedIndex,
-    //     SelectedRegion = region.options[Select1].value,
-    //     SelectedProduct = product.options[Select2].value,
-    //     SelectDate = [];
-    // for(var i=0;i<sourceData.length;i++) {
-    //     if(sourceData[i].region == SelectedRegion && sourceData[i].product == SelectedProduct) {
-    //         SelectDate.push(sourceData[i]);
-    //     }
-    // }
-
-    //根据checkbox选项获取数据   
-    var SelectDate = []; 
+    //根据checkbox选项获取数据  
     var radioCheckbox = document.querySelectorAll('input:checked'),
-        list =[];
+        list =[],  
+        SelectDate = [];
     for(var i =0;i<radioCheckbox.length;i++) {
         if(radioCheckbox[i].value !== '全选') {
             list.push(radioCheckbox[i].value);
@@ -28,6 +16,24 @@ function getDate() {
     return SelectDate;
 }
 
-//数据处理这里还有些问题
-// 1.select与checkbox重复选项，导致显示重复
-// 2.select与checkbox不相关
+//
+function tdData() {
+    var tdList = table.getElementsByTagName("td");
+    for(var i = 0;i<tdList.length;i++) {
+        tdList[i].onmouseover = function() {
+            var data = [],
+                arr = [];
+            arr = this.parentNode.getElementsByTagName("td");
+            for(var j = 2;j<arr.length;j++) {
+                data.push(arr[j].innerHTML);
+            }
+            var bar = document.getElementById('svg-warpper');
+            bar.innerHTML = drawHistogram(data);
+            drawLine(data);
+            tdData();
+        }
+    }
+    // return data;
+}
+
+setInterval("tdData()",100);

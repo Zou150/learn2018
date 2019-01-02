@@ -3,7 +3,7 @@ var region = document.getElementById('region-select'),
     table = document.getElementById('table-wrapper'),
 
     regionX = document.getElementById('region-radio-wrapper'),
-    productX = document.getElementById('product-radio-wrapper');;
+    productX = document.getElementById('product-radio-wrapper');
 
 var regionArr = [{
         value: "华东",
