@@ -16,7 +16,7 @@ function getDate() {
     return SelectDate;
 }
 
-//
+// 在绘制表格的时候，给对应的td或者tr添加一个自定义属性，这一格数据属于哪个商品哪个区域
 function tdData() {
     var tdList = table.getElementsByTagName("td");
     for(var i = 0;i<tdList.length;i++) {
@@ -27,13 +27,12 @@ function tdData() {
             for(var j = 2;j<arr.length;j++) {
                 data.push(arr[j].innerHTML);
             }
-            var bar = document.getElementById('svg-warpper');
+            // var bar = document.getElementById('svg-warpper');
             bar.innerHTML = drawHistogram(data);
             drawLine(data);
             tdData();
         }
     }
-    // return data;
 }
 
 setInterval("tdData()",100);

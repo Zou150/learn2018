@@ -14,7 +14,7 @@ function drawHistogram(data) {//柱状图数据
     var Maxdata = Math.max(...data);//拿到柱状图中的最大值Max
     //根据Max和你用来绘制柱状图图像区域的高度，进行一个数据和像素的折算比例
     var percent;
-    if(Maxdata > 300) {
+    if(Maxdata > 200) {
         percent = 200 / Maxdata;
     }else {
         percent = 1;
@@ -26,8 +26,11 @@ function drawHistogram(data) {//柱状图数据
     var row = "<line x1="+startX+" y1="+startY+" x2="+(startX+axisX)+" y2="+startY+' style="stroke:rgb(0,99,99);stroke-width:1"/>';
     var col = "<line x1="+startX+" y1="+startY+" x2="+startX+" y2="+(startY-axisY)+' style="stroke:rgb(0,99,99);stroke-width:1"/>';
 
-    //补充：绘制横坐标等分线
-    
+    //补充：建立x轴月份的位置
+    for(var i = 0; i< 12; i++) {
+        axisTextX = ((i+1) * (barWidth + interval)) - barWidth / 2 + interval;
+        svgStart += "<text x=" + axisTextX + " y='290'" + " font-size='12'>" + (i+1) + "月" + "</text>";
+    }
 
     //遍历数据
     var svgT = svgStart + row + col;
@@ -37,6 +40,7 @@ function drawHistogram(data) {//柱状图数据
             rectStartY = startY - data[i] * percent;
         //绘制每一个柱子
         var bar = "<rect x="+rectStartX+" y="+rectStartY+" width="+barWidth+" height="+data[i] * percent+' style="fill:rgb(0,255,255);stroke:rgb(0,0,0)"/>';
+        // svgT += "<text x=" + (rectStartX+5) + " y=" + (rectStartY-5) + " font-size='12'>" + data[i] + "</text>";//标示数据
         svgT += bar;
     }    
     svgT += svgEnd;

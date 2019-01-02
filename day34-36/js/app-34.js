@@ -1,9 +1,10 @@
-var region = document.getElementById('region-select'),
-    product = document.getElementById('product-select'),
-    table = document.getElementById('table-wrapper'),
+var table = document.getElementById('table-wrapper'),
 
     regionX = document.getElementById('region-radio-wrapper'),
-    productX = document.getElementById('product-radio-wrapper');
+    productX = document.getElementById('product-radio-wrapper'),
+    bar = document.getElementById('svg-wrapper'),
+    bar2 = document.getElementById("canvas-wrapper"),
+    canvas = document.getElementById("canvas");
 
 var regionArr = [{
         value: "华东",
@@ -27,16 +28,6 @@ var regionArr = [{
         text: '智能音箱'
     }];
 
-// region.onchange = function() {
-//     //渲染新的表格(根据select选项获取数据)
-//     reTable(getDate());
-// }
-// product.onchange = function() {
-//     reTable(getDate());
-// }
-
-
 //生成两组CheckBox
 setCheckBox(regionX,regionArr);
 setCheckBox(productX,productArr);
-    

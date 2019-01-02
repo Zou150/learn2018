@@ -28,18 +28,11 @@ table thead th:first-child {
 }
 
 tr:hover {
-    background-color: red;
+    background-color: #BBFFFF;
 }
 
-/* #svg-warpper,
+#svg-wrapper,
 #canvas-wrapper {
-    border: 1px solid black;
-    margin: 0;
-    padding: 0;
-    width: 600px;
-} */
-
-
-
-
+    float: left;
+}
 

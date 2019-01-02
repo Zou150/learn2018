@@ -8,10 +8,10 @@ function drawLine(data) {
         startX = 25,
         startY = 25;
     //定义好每一个数据点的直径，颜色，线的颜色，宽度    
-    var dianw = 4,
-        dianc = 'black',
-        linec = '#37A2DA',
-        linw = 2;
+    var pointW = 6,
+        pointC = '#37A2DA',
+        lineC = 'black',
+        linW = 2;
     //定义好没两个数据点之间的横向间隔距离
     var interval = 40;
 
@@ -19,13 +19,13 @@ function drawLine(data) {
     var Maxdata = Math.max(...data);
     //根据Max和你用来绘制柱状图图像区域的高度，进行一个数据和像素的折算比例
     var percent;
-    if(Maxdata > 300) {
+    if(Maxdata > 200) {
         percent = 200 / Maxdata;
     }else {
         percent = 1;
     }
     //绘制横轴及纵轴
-    var canvas = document.getElementById("canvas");
+    // var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext('2d');
     canvas.setAttribute("width",w);
     canvas.setAttribute("height",h);
@@ -34,18 +34,22 @@ function drawLine(data) {
     ctx.moveTo(startX,startY);
     ctx.lineTo(startX,startY + axisY);
     ctx.lineTo(startX +axisX,startY + axisY);
-    ctx.strokeStyle = dianc;
+    ctx.strokeStyle = lineC;
     ctx.stroke();
 
     //遍历数据
     // ctx.moveTo(70,350 - data[0]);
     for(var i = 0;i < data.length;i++) {
+        //绘制多条折线图
+        var sale = data[i].sale,
+            dataColor = set
+
         ctx.beginPath();
         //计算将要绘制数据点的坐标
         var x = 15 + interval * (i + 1);
         var y = axisY - data[i] * percent;
         //绘制数据点       
-        ctx.arc(x,y,dianw / 2,0,Math.PI * 2);
+        ctx.arc(x,y,pointW / 2,0,Math.PI * 2);
         // ctx.font = "32px consals";
         // ctx.fillText("Hello World",10,50);
         if(i - 1 >= 0) {//不是第一个点
@@ -55,8 +59,17 @@ function drawLine(data) {
             var dy = axisY - data[i - 1] * percent;
             ctx.lineTo(dx, dy);
         }
-        ctx.strokeStyle = linec;
+        ctx.strokeStyle = pointC;
         //记录下当前数据点的数据用于下一个点时绘制连线
         ctx.stroke();
+    }
+
+    //x轴上的月份
+    var axisTextX = [];
+    for(var i = 0; i< 12; i++) {
+        axisTextX = 15 + interval * (i+1) - 15 / 2;
+        ctx.font = "13px serif";
+        ctx.fillText((i+1)+"月",axisTextX,290);
+        // ctx.fillText(data[i],axisTextX,axisY - data[i] * percent -10);//标示数据
     }
 }
