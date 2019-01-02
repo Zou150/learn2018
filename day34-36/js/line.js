@@ -2,9 +2,9 @@
 function drawLine(data) {
     //定义好折线图绘制区域的高度，宽度，轴的高度，宽度
     var w = 550,
-        h = 350,
+        h = 300,
         axisX = 500,
-        axisY = 300,
+        axisY = 250,
         startX = 25,
         startY = 25;
     //定义好每一个数据点的直径，颜色，线的颜色，宽度    
@@ -16,9 +16,14 @@ function drawLine(data) {
     var interval = 40;
 
     //拿到折线图中的最大值Max
-    var Maxdata = Math.max(data);
-    //根据Max和你用来绘制折线图图像区域的高度，进行一个数据和像素的折算比例
-    var percent = 1;
+    var Maxdata = Math.max(...data);
+    //根据Max和你用来绘制柱状图图像区域的高度，进行一个数据和像素的折算比例
+    var percent;
+    if(Maxdata > 300) {
+        percent = 200 / Maxdata;
+    }else {
+        percent = 1;
+    }
     //绘制横轴及纵轴
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext('2d');
@@ -38,14 +43,16 @@ function drawLine(data) {
         ctx.beginPath();
         //计算将要绘制数据点的坐标
         var x = 15 + interval * (i + 1);
-        var y = axisY - data[i];
+        var y = axisY - data[i] * percent;
         //绘制数据点       
         ctx.arc(x,y,dianw / 2,0,Math.PI * 2);
+        // ctx.font = "32px consals";
+        // ctx.fillText("Hello World",10,50);
         if(i - 1 >= 0) {//不是第一个点
             //绘制这个数据点和上一个数据点的连线
             ctx.moveTo(x,y);
             var dx = 15 + interval * (i);
-            var dy = axisY - data[i - 1];
+            var dy = axisY - data[i - 1] * percent;
             ctx.lineTo(dx, dy);
         }
         ctx.strokeStyle = linec;
