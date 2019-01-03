@@ -16,6 +16,7 @@ table td {
     border: 1px solid #ddd;
     text-align: center;
 }
+
 td,
 th {
     width: 40px;
@@ -24,10 +25,12 @@ th {
 
 table thead th:first-child {
     width: 86px;
-    background: lightblue;
+}
+table thead {
+    background-color: lightblue;
 }
 
-tr:hover {
+tbody tr:hover {
     background-color: #BBFFFF;
 }
 
@@ -35,4 +38,3 @@ tr:hover {
 #canvas-wrapper {
     float: left;
 }
-

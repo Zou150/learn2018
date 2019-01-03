@@ -39,4 +39,6 @@ product.onchange = function() {
 //生成两组CheckBox
 setCheckBox(regionX,regionArr);
 setCheckBox(productX,productArr);
-    
+
+//生成表格
+reTable(getDate());

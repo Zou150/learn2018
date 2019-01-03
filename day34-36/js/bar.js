@@ -19,6 +19,7 @@ function drawHistogram(data) {//柱状图数据
     }else {
         percent = 1;
     }
+
     var svgStart = '<svg width=' + w + ' height=' + h + ' version="1.1" xmlns="http://www.w3.org/2000/svg">';
     var svgEnd = '</svg>';
 
@@ -44,5 +45,6 @@ function drawHistogram(data) {//柱状图数据
         svgT += bar;
     }    
     svgT += svgEnd;
-    return svgT;
+    svg.innerHTML = svgT;
+    return svg.innerHTML;
 }

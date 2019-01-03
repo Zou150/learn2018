@@ -16,23 +16,15 @@ function getDate() {
     return SelectDate;
 }
 
-// 在绘制表格的时候，给对应的td或者tr添加一个自定义属性，这一格数据属于哪个商品哪个区域
-function tdData() {
-    var tdList = table.getElementsByTagName("td");
+// 获取对应的td数据
+function tdData(event) {
+    var tdList = event.target.parentNode.querySelectorAll("td"),
+        arr = [];
     for(var i = 0;i<tdList.length;i++) {
-        tdList[i].onmouseover = function() {
-            var data = [],
-                arr = [];
-            arr = this.parentNode.getElementsByTagName("td");
-            for(var j = 2;j<arr.length;j++) {
-                data.push(arr[j].innerHTML);
-            }
-            // var bar = document.getElementById('svg-warpper');
-            bar.innerHTML = drawHistogram(data);
-            drawLine(data);
-            tdData();
+        var num = parseInt(tdList[i].innerHTML);
+        if(num) {
+            arr.push(num);
         }
     }
+    return arr;
 }
-
-setInterval("tdData()",100);
