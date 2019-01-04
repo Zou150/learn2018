@@ -1,0 +1,40 @@
+
+body {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+table {
+    border-collapse: collapse;
+}
+table thead tr {
+    height: 24px;
+}
+
+table thead th,
+table td {
+    padding: 5px 14px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+td,
+th {
+    width: 40px;
+    height: 10px;
+}
+
+table thead th:first-child {
+    width: 86px;
+}
+table thead {
+    background-color: lightblue;
+}
+
+tbody tr:hover {
+    background-color: #BBFFFF;
+}
+
+#svg-wrapper,
+#canvas-wrapper {
+    float: left;
+}
