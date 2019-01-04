@@ -36,28 +36,6 @@ setCheckBox(regionX,regionArr);
 setCheckBox(productX,productArr);
 
 //生成表格
-// reTable(getDate());
+var newData = JSON.parse(localStorage.getItem("table")) || sourceData;
+reTable(newData);
 
-table.onmouseover = function(e) {
-    // if(!e.target.className) {
-        var rowsData= tdData(e);
-        // ctx.clear = true;
-        drawHistogram(rowsData);
-        drawLine(rowsData);
-    // }
-}
-
-// table.onmouseout = function() {
-//     var data = sourceData;
-//     for(var i = 0;i< data.length; i++) {
-//         // drawLine(data[i].sale);
-//         data.graphLineChart();
-//     }
-// }
-// function ss(data) {
-//     for(var i = 0;i<data.length;i++) {
-//         var dd = data[i].sale;
-//         drawLine(dd);
-//     }
-// }   
-// ss(sourceData);

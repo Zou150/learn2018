@@ -16,15 +16,9 @@ function getDate() {
     return SelectDate;
 }
 
-// 获取对应的td数据
-function tdData(event) {
-    var tdList = event.target.parentNode.querySelectorAll("td"),
-        arr = [];
-    for(var i = 0;i<tdList.length;i++) {
-        var num = parseInt(tdList[i].innerHTML);
-        if(num) {
-            arr.push(num);
-        }
-    }
-    return arr;
+//把数据保存到LocalStroage
+function savedLocalStroage() {
+    var strData = JSON.stringify(data);
+    localStorage.removeItem("table");
+    localStorage.setItem("table",strData);
 }

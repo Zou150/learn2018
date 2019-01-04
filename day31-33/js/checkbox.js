@@ -19,9 +19,6 @@
             obj.appendChild(text2);
         }
         //容器innerHTML = 生成好的html集合  
-        console.log(obj);
-        console.log(obj.childNodes.length);
-
         obj.onclick = function(e) {
             var e = e || window.event;
             var target = e.target || e.srcElement;

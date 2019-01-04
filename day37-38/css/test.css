@@ -18,7 +18,8 @@ table td {
 }
 
 td,
-th {
+th,
+input {
     width: 40px;
     height: 10px;
 }
