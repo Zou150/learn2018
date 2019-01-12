@@ -12,7 +12,7 @@
                 string = string.concat('<td>' + date[i].product + '</td>');
                 string = string.concat('<td>' + date[i].region + '</td>');
                 for(var j=0;j<Tcol -2;j++) {
-                    string = string.concat('<td>' + date[i].sale[j] + '</td>');
+                    string = string.concat('<td><input value=' + date[i].sale[j] + '></td>');
                 }
                 string = string.concat('</tr>');
             }

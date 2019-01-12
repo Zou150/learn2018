@@ -18,7 +18,12 @@ function getDate() {
 
 //把数据保存到LocalStroage
 function savedLocalStroage() {
-    var strData = JSON.stringify(data);
-    localStorage.removeItem("table");
-    localStorage.setItem("table",strData);
+    // var strData = JSON.stringify(data);
+    // localStorage.removeItem("table");
+    // localStorage.setItem("table",strData);
+    var storage = window.localStorage;
+    var inputAll = table.querySelectorAll("input");
+    for(var i = 0; i<inputAll.length; i++) {
+        storage.getItem("",)
+    }
 }

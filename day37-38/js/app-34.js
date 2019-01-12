@@ -39,3 +39,26 @@ setCheckBox(productX,productArr);
 var newData = JSON.parse(localStorage.getItem("table")) || sourceData;
 reTable(newData);
 
+var inputAll = table.querySelectorAll("input");
+
+for(var i = 0;i<inputAll.length;i++) {
+
+    inputAll[i].onfocus = function(ev) {
+        ev = ev || window.event;
+let target = event.target || ev.srcElement;
+        yuanData = target.value;
+        console.log(yuanData);
+    }
+
+    inputAll[i].onblur = function(ev) {
+// console.log(inputAll[i].value)
+//         var inValue = inputAll[i].value;
+ev = ev || window.event;
+let target = event.target || ev.srcElement;
+        if(typeof(target.value) !== "number") {
+            alert("请输入数字！");
+            target.value = yuanData;
+        }
+    }
+}
+console.log(i)
